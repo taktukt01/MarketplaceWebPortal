@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Product]
 (
-	[ProductID] INT IDENTITY (1,1) NOT NULL, 
+	[ProductID] INT NOT NULL, 
 	[ModelID] INT NULL,
 	[ManufacturerID] INT NULL,
 	[ProductImgID] INT NULL,

@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[SeriesModels]
 (
 	[s_m_id] INT NOT NULL,
-	[SeriesID] INT IDENTITY (1,1) NOT NULL,
+	[SeriesID] INT NOT NULL,
 	[ModelID]  INT NULL,
 	Primary Key Clustered ([s_m_id] ASC),
 	CONSTRAINT [FK_dbo.SeriesModels_dbo.Models_ModelID] FOREIGN KEY ([ModelID]) 

@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[ManufactureSeries]
 (
 	[m_s_id] INT NOT NULL,
-	[ManufactureID] INT IDENTITY (1,1) NOT NULL,
+	[ManufactureID] INT NOT NULL,
 	[SeriesID] INT NULL, 
 	PRIMARY KEY CLUSTERED ([m_s_id] ASC),
 	CONSTRAINT [FK_dbo.ManufactureSeries_dbo.Series_CourseID] FOREIGN KEY ([SeriesID]) 
