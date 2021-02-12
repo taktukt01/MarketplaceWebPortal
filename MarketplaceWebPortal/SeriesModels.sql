@@ -1,8 +1,11 @@
 ﻿CREATE TABLE [dbo].[SeriesModels]
 (
-	[SeriesID] INT IDENTITY (1,1)  NOT NULL,
+	[s_m_id] INT NOT NULL,
+	[SeriesID] INT IDENTITY (1,1) NOT NULL,
 	[ModelID]  INT NULL,
-	Primary Key Clustered ([SeriesID] ASC),
+	Primary Key Clustered ([s_m_id] ASC),
 	CONSTRAINT [FK_dbo.SeriesModels_dbo.Models_ModelID] FOREIGN KEY ([ModelID]) 
-	 REFERENCES [dbo].[Models] ([Model_ID]) ON DELETE CASCADE
+	 REFERENCES [dbo].[Models] ([Model_ID]) ON DELETE CASCADE,
+	 CONSTRAINT [FK_dbo.SeriesModels_dbo.Series_SiriesID] FOREIGN KEY ([SeriesID]) 
+	 REFERENCES [dbo].[Series] ([SeriesID]) ON DELETE CASCADE
 )
