@@ -74,6 +74,5 @@
     <Build Include="SubCategory.sql" />
     <Build Include="TechSpecFilter.sql" />
     <Build Include="User.sql" />
-    <Build Include="UserImage.sql" />
   </ItemGroup>
 </Project>
