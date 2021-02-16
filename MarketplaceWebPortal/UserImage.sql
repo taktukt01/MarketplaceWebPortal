@@ -1,7 +1,0 @@
-﻿CREATE TABLE [dbo].[UserImage]
-(
-	[UserImgID] INT IDENTITY(1,1) NOT NULL,
-	[ImgTitle] CHAR(50) NULL,
-	[ImgUrl] NVARCHAR(50) NULL,
-	PRIMARY KEY CLUSTERED ([UserImgID] ASC)
-)
