@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebPortal.Entity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebPortal.UI", "MarketplaceWebPortal.UI\MarketplaceWebPortal.UI.csproj", "{2108051A-1CAD-49B6-8A30-63721CD41B05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebPortal.Core", "MarketplaceWebPortal.Core\MarketplaceWebPortal.Core.csproj", "{FD9998DC-B405-4462-8FEA-569A6B898F01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{2108051A-1CAD-49B6-8A30-63721CD41B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2108051A-1CAD-49B6-8A30-63721CD41B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2108051A-1CAD-49B6-8A30-63721CD41B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9998DC-B405-4462-8FEA-569A6B898F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9998DC-B405-4462-8FEA-569A6B898F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9998DC-B405-4462-8FEA-569A6B898F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9998DC-B405-4462-8FEA-569A6B898F01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

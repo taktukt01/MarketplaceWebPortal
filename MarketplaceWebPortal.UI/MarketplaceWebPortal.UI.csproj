@@ -181,6 +181,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MarketplaceWebPortal.Core\MarketplaceWebPortal.Core.csproj">
+      <Project>{fd9998dc-b405-4462-8fea-569a6b898f01}</Project>
+      <Name>MarketplaceWebPortal.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MarketplaceWebPortal.EntityLayer\MarketplaceWebPortal.EntityLayer.csproj">
       <Project>{8184c8f1-1b45-457a-bd3d-c6aefb1bd1f9}</Project>
       <Name>MarketplaceWebPortal.EntityLayer</Name>
