@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MarketplaceWebPortal", "MarketplaceWebPortal\MarketplaceWebPortal.sqlproj", "{5007701F-634B-4430-AF38-323D728680A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebApp", "MarketplaceWebApp\MarketplaceWebApp.csproj", "{2056606E-112E-4B3B-9AE0-6749014414E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebPortal.EntityLayer", "MarketplaceWebPortal.EntityLayer\MarketplaceWebPortal.EntityLayer.csproj", "{8184C8F1-1B45-457A-BD3D-C6AEFB1BD1F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceWebPortal.UI", "MarketplaceWebPortal.UI\MarketplaceWebPortal.UI.csproj", "{2108051A-1CAD-49B6-8A30-63721CD41B05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +21,14 @@ Global
 		{5007701F-634B-4430-AF38-323D728680A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5007701F-634B-4430-AF38-323D728680A9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5007701F-634B-4430-AF38-323D728680A9}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{2056606E-112E-4B3B-9AE0-6749014414E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2056606E-112E-4B3B-9AE0-6749014414E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2056606E-112E-4B3B-9AE0-6749014414E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2056606E-112E-4B3B-9AE0-6749014414E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8184C8F1-1B45-457A-BD3D-C6AEFB1BD1F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8184C8F1-1B45-457A-BD3D-C6AEFB1BD1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8184C8F1-1B45-457A-BD3D-C6AEFB1BD1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8184C8F1-1B45-457A-BD3D-C6AEFB1BD1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2108051A-1CAD-49B6-8A30-63721CD41B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2108051A-1CAD-49B6-8A30-63721CD41B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2108051A-1CAD-49B6-8A30-63721CD41B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2108051A-1CAD-49B6-8A30-63721CD41B05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

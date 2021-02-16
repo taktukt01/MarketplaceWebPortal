@@ -1,0 +1,916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MarketplaceWebPortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationInOrOut" Type="int" />
+          <Property Name="MountingLocation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="char" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Manufactures">
+          <Key>
+            <PropertyRef Name="ManufactureID" />
+          </Key>
+          <Property Name="ManufactureID" Type="int" Nullable="false" />
+          <Property Name="ManufactureName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ManufactureSeries">
+          <Key>
+            <PropertyRef Name="m_s_id" />
+          </Key>
+          <Property Name="m_s_id" Type="int" Nullable="false" />
+          <Property Name="ManufactureID" Type="int" Nullable="false" />
+          <Property Name="SeriesID" Type="int" />
+        </EntityType>
+        <EntityType Name="Models">
+          <Key>
+            <PropertyRef Name="Model_id" />
+          </Key>
+          <Property Name="Model_id" Type="int" Nullable="false" />
+          <Property Name="model_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="model_year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="ManufacturerID" Type="int" />
+          <Property Name="ProductImgUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductProperty">
+          <Key>
+            <PropertyRef Name="ProductPropertyID" />
+          </Key>
+          <Property Name="ProductPropertyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyValue" Type="int" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="PropertyID" />
+          </Key>
+          <Property Name="PropertyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationID" Type="int" />
+          <Property Name="ProductPropertyID" Type="int" />
+          <Property Name="air_flow" Type="int" Nullable="false" />
+          <Property Name="power_min" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="power_max" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="operating_voltage_min" Type="int" Nullable="false" />
+          <Property Name="operating_voltage_max" Type="int" Nullable="false" />
+          <Property Name="fan_speed_min" Type="int" Nullable="false" />
+          <Property Name="fan_speed_max" Type="int" Nullable="false" />
+          <Property Name="number_of_fan_speed" Type="int" Nullable="false" />
+          <Property Name="sound_at_max_speed" Type="int" Nullable="false" />
+          <Property Name="height_min" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="height_max" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="weight" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Accessories" Type="int" />
+        </EntityType>
+        <EntityType Name="Series">
+          <Key>
+            <PropertyRef Name="SeriesID" />
+          </Key>
+          <Property Name="SeriesID" Type="int" Nullable="false" />
+          <Property Name="SeriesName" Type="char" MaxLength="50" />
+          <Property Name="SeriesInfo" Type="char" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="SeriesModels">
+          <Key>
+            <PropertyRef Name="s_m_id" />
+          </Key>
+          <Property Name="s_m_id" Type="int" Nullable="false" />
+          <Property Name="SeriesID" Type="int" Nullable="false" />
+          <Property Name="ModelID" Type="int" />
+        </EntityType>
+        <EntityType Name="Shipments">
+          <Key>
+            <PropertyRef Name="ShipmentID" />
+          </Key>
+          <Property Name="ShipmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ShipmentDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SubCategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TechSpecFilter">
+          <Key>
+            <PropertyRef Name="TechSpecID" />
+          </Key>
+          <Property Name="TechSpecID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyID" Type="int" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="MaxVal" Type="int" />
+          <Property Name="MinVal" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="char" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="300" />
+          <Property Name="Email" Type="nvarchar" MaxLength="300" />
+          <Property Name="ImgUrl" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <Association Name="FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID">
+          <End Role="Manufactures" Type="Self.Manufactures" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ManufactureSeries" Type="Self.ManufactureSeries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufactures">
+              <PropertyRef Name="ManufactureID" />
+            </Principal>
+            <Dependent Role="ManufactureSeries">
+              <PropertyRef Name="ManufactureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ManufactureSeries_dbo_Series_CourseID">
+          <End Role="Series" Type="Self.Series" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ManufactureSeries" Type="Self.ManufactureSeries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Series">
+              <PropertyRef Name="SeriesID" />
+            </Principal>
+            <Dependent Role="ManufactureSeries">
+              <PropertyRef Name="SeriesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Orders_dbo_User_UserID">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Property_dbo_Application_ApplicationID">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Property_dbo_ProductProperty_ProductPropertyID">
+          <End Role="ProductProperty" Type="Self.ProductProperty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductProperty">
+              <PropertyRef Name="ProductPropertyID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="ProductPropertyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SeriesModels_dbo_Models_ModelID">
+          <End Role="Models" Type="Self.Models" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeriesModels" Type="Self.SeriesModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Models">
+              <PropertyRef Name="Model_id" />
+            </Principal>
+            <Dependent Role="SeriesModels">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SeriesModels_dbo_Series_SiriesID">
+          <End Role="Series" Type="Self.Series" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeriesModels" Type="Self.SeriesModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Series">
+              <PropertyRef Name="SeriesID" />
+            </Principal>
+            <Dependent Role="SeriesModels">
+              <PropertyRef Name="SeriesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Shipments_dbo_Orders_OrderID">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SubCategory_dbo_Category_CategoryID">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TechSpecFilter_dbo_Property_PropertyID">
+          <End Role="Property" Type="Self.Property" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TechSpecFilter" Type="Self.TechSpecFilter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PropertyID" />
+            </Principal>
+            <Dependent Role="TechSpecFilter">
+              <PropertyRef Name="PropertyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TechSpecFilter" Type="Self.TechSpecFilter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="TechSpecFilter">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MarketplaceWebPortalModelStoreContainer">
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufactures" EntityType="Self.Manufactures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManufactureSeries" EntityType="Self.ManufactureSeries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductProperty" EntityType="Self.ProductProperty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Series" EntityType="Self.Series" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeriesModels" EntityType="Self.SeriesModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shipments" EntityType="Self.Shipments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechSpecFilter" EntityType="Self.TechSpecFilter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID" Association="Self.FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID">
+            <End Role="Manufactures" EntitySet="Manufactures" />
+            <End Role="ManufactureSeries" EntitySet="ManufactureSeries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ManufactureSeries_dbo_Series_CourseID" Association="Self.FK_dbo_ManufactureSeries_dbo_Series_CourseID">
+            <End Role="Series" EntitySet="Series" />
+            <End Role="ManufactureSeries" EntitySet="ManufactureSeries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Orders_dbo_User_UserID" Association="Self.FK_dbo_Orders_dbo_User_UserID">
+            <End Role="User" EntitySet="User" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Property_dbo_Application_ApplicationID" Association="Self.FK_dbo_Property_dbo_Application_ApplicationID">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Property_dbo_ProductProperty_ProductPropertyID" Association="Self.FK_dbo_Property_dbo_ProductProperty_ProductPropertyID">
+            <End Role="ProductProperty" EntitySet="ProductProperty" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SeriesModels_dbo_Models_ModelID" Association="Self.FK_dbo_SeriesModels_dbo_Models_ModelID">
+            <End Role="Models" EntitySet="Models" />
+            <End Role="SeriesModels" EntitySet="SeriesModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SeriesModels_dbo_Series_SiriesID" Association="Self.FK_dbo_SeriesModels_dbo_Series_SiriesID">
+            <End Role="Series" EntitySet="Series" />
+            <End Role="SeriesModels" EntitySet="SeriesModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Shipments_dbo_Orders_OrderID" Association="Self.FK_dbo_Shipments_dbo_Orders_OrderID">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SubCategory_dbo_Category_CategoryID" Association="Self.FK_dbo_SubCategory_dbo_Category_CategoryID">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TechSpecFilter_dbo_Property_PropertyID" Association="Self.FK_dbo_TechSpecFilter_dbo_Property_PropertyID">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="TechSpecFilter" EntitySet="TechSpecFilter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID" Association="Self.FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="TechSpecFilter" EntitySet="TechSpecFilter" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MarketplaceWebPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationInOrOut" Type="Int32" />
+          <Property Name="MountingLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_dbo_Property_dbo_Application_ApplicationID" FromRole="Application" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="SubCategories" Relationship="Self.FK_dbo_SubCategory_dbo_Category_CategoryID" FromRole="Category" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="Manufacture">
+          <Key>
+            <PropertyRef Name="ManufactureID" />
+          </Key>
+          <Property Name="ManufactureID" Type="Int32" Nullable="false" />
+          <Property Name="ManufactureName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ManufactureSeries" Relationship="Self.FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID" FromRole="Manufactures" ToRole="ManufactureSeries" />
+        </EntityType>
+        <EntityType Name="ManufactureSery">
+          <Key>
+            <PropertyRef Name="m_s_id" />
+          </Key>
+          <Property Name="m_s_id" Type="Int32" Nullable="false" />
+          <Property Name="ManufactureID" Type="Int32" Nullable="false" />
+          <Property Name="SeriesID" Type="Int32" />
+          <NavigationProperty Name="Manufacture" Relationship="Self.FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID" FromRole="ManufactureSeries" ToRole="Manufactures" />
+          <NavigationProperty Name="Series" Relationship="Self.FK_dbo_ManufactureSeries_dbo_Series_CourseID" FromRole="ManufactureSeries" ToRole="Series" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="Model_id" />
+          </Key>
+          <Property Name="Model_id" Type="Int32" Nullable="false" />
+          <Property Name="model_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model_year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SeriesModels" Relationship="Self.FK_dbo_SeriesModels_dbo_Models_ModelID" FromRole="Models" ToRole="SeriesModels" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_Orders_dbo_User_UserID" FromRole="Orders" ToRole="User" />
+          <NavigationProperty Name="Shipments" Relationship="Self.FK_dbo_Shipments_dbo_Orders_OrderID" FromRole="Orders" ToRole="Shipments" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="ManufacturerID" Type="Int32" />
+          <Property Name="ProductImgUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductProperty">
+          <Key>
+            <PropertyRef Name="ProductPropertyID" />
+          </Key>
+          <Property Name="ProductPropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyValue" Type="Int32" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_dbo_Property_dbo_ProductProperty_ProductPropertyID" FromRole="ProductProperty" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="PropertyID" />
+          </Key>
+          <Property Name="PropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="Int32" />
+          <Property Name="ProductPropertyID" Type="Int32" />
+          <Property Name="air_flow" Type="Int32" Nullable="false" />
+          <Property Name="power_min" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="power_max" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="operating_voltage_min" Type="Int32" Nullable="false" />
+          <Property Name="operating_voltage_max" Type="Int32" Nullable="false" />
+          <Property Name="fan_speed_min" Type="Int32" Nullable="false" />
+          <Property Name="fan_speed_max" Type="Int32" Nullable="false" />
+          <Property Name="number_of_fan_speed" Type="Int32" Nullable="false" />
+          <Property Name="sound_at_max_speed" Type="Int32" Nullable="false" />
+          <Property Name="height_min" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="height_max" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="weight" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Accessories" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_dbo_Property_dbo_Application_ApplicationID" FromRole="Property" ToRole="Application" />
+          <NavigationProperty Name="ProductProperty" Relationship="Self.FK_dbo_Property_dbo_ProductProperty_ProductPropertyID" FromRole="Property" ToRole="ProductProperty" />
+          <NavigationProperty Name="TechSpecFilters" Relationship="Self.FK_dbo_TechSpecFilter_dbo_Property_PropertyID" FromRole="Property" ToRole="TechSpecFilter" />
+        </EntityType>
+        <EntityType Name="Series">
+          <Key>
+            <PropertyRef Name="SeriesID" />
+          </Key>
+          <Property Name="SeriesID" Type="Int32" Nullable="false" />
+          <Property Name="SeriesName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="SeriesInfo" Type="String" MaxLength="250" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ManufactureSeries" Relationship="Self.FK_dbo_ManufactureSeries_dbo_Series_CourseID" FromRole="Series" ToRole="ManufactureSeries" />
+          <NavigationProperty Name="SeriesModels" Relationship="Self.FK_dbo_SeriesModels_dbo_Series_SiriesID" FromRole="Series" ToRole="SeriesModels" />
+        </EntityType>
+        <EntityType Name="SeriesModel">
+          <Key>
+            <PropertyRef Name="s_m_id" />
+          </Key>
+          <Property Name="s_m_id" Type="Int32" Nullable="false" />
+          <Property Name="SeriesID" Type="Int32" Nullable="false" />
+          <Property Name="ModelID" Type="Int32" />
+          <NavigationProperty Name="Model" Relationship="Self.FK_dbo_SeriesModels_dbo_Models_ModelID" FromRole="SeriesModels" ToRole="Models" />
+          <NavigationProperty Name="Series" Relationship="Self.FK_dbo_SeriesModels_dbo_Series_SiriesID" FromRole="SeriesModels" ToRole="Series" />
+        </EntityType>
+        <EntityType Name="Shipment">
+          <Key>
+            <PropertyRef Name="ShipmentID" />
+          </Key>
+          <Property Name="ShipmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ShipmentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_dbo_Shipments_dbo_Orders_OrderID" FromRole="Shipments" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SubCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_dbo_SubCategory_dbo_Category_CategoryID" FromRole="SubCategory" ToRole="Category" />
+          <NavigationProperty Name="TechSpecFilters" Relationship="Self.FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID" FromRole="SubCategory" ToRole="TechSpecFilter" />
+        </EntityType>
+        <EntityType Name="TechSpecFilter">
+          <Key>
+            <PropertyRef Name="TechSpecID" />
+          </Key>
+          <Property Name="TechSpecID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyID" Type="Int32" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="MaxVal" Type="Int32" />
+          <Property Name="MinVal" Type="Int32" />
+          <NavigationProperty Name="Property" Relationship="Self.FK_dbo_TechSpecFilter_dbo_Property_PropertyID" FromRole="TechSpecFilter" ToRole="Property" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID" FromRole="TechSpecFilter" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_User_UserID" FromRole="User" ToRole="Orders" />
+        </EntityType>
+        <Association Name="FK_dbo_Property_dbo_Application_ApplicationID">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SubCategory_dbo_Category_CategoryID">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID">
+          <End Role="Manufactures" Type="Self.Manufacture" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ManufactureSeries" Type="Self.ManufactureSery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufactures">
+              <PropertyRef Name="ManufactureID" />
+            </Principal>
+            <Dependent Role="ManufactureSeries">
+              <PropertyRef Name="ManufactureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ManufactureSeries_dbo_Series_CourseID">
+          <End Role="Series" Type="Self.Series" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ManufactureSeries" Type="Self.ManufactureSery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Series">
+              <PropertyRef Name="SeriesID" />
+            </Principal>
+            <Dependent Role="ManufactureSeries">
+              <PropertyRef Name="SeriesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SeriesModels_dbo_Models_ModelID">
+          <End Role="Models" Type="Self.Model" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeriesModels" Type="Self.SeriesModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Models">
+              <PropertyRef Name="Model_id" />
+            </Principal>
+            <Dependent Role="SeriesModels">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Orders_dbo_User_UserID">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Shipments_dbo_Orders_OrderID">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Shipments" Type="Self.Shipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Shipments">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Property_dbo_ProductProperty_ProductPropertyID">
+          <End Role="ProductProperty" Type="Self.ProductProperty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductProperty">
+              <PropertyRef Name="ProductPropertyID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="ProductPropertyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TechSpecFilter_dbo_Property_PropertyID">
+          <End Role="Property" Type="Self.Property" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TechSpecFilter" Type="Self.TechSpecFilter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PropertyID" />
+            </Principal>
+            <Dependent Role="TechSpecFilter">
+              <PropertyRef Name="PropertyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SeriesModels_dbo_Series_SiriesID">
+          <End Role="Series" Type="Self.Series" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeriesModels" Type="Self.SeriesModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Series">
+              <PropertyRef Name="SeriesID" />
+            </Principal>
+            <Dependent Role="SeriesModels">
+              <PropertyRef Name="SeriesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TechSpecFilter" Type="Self.TechSpecFilter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="TechSpecFilter">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Applications" EntityType="Self.Application" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Manufactures" EntityType="Self.Manufacture" />
+          <EntitySet Name="ManufactureSeries" EntityType="Self.ManufactureSery" />
+          <EntitySet Name="Models" EntityType="Self.Model" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductProperties" EntityType="Self.ProductProperty" />
+          <EntitySet Name="Properties" EntityType="Self.Property" />
+          <EntitySet Name="Series" EntityType="Self.Series" />
+          <EntitySet Name="SeriesModels" EntityType="Self.SeriesModel" />
+          <EntitySet Name="Shipments" EntityType="Self.Shipment" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="TechSpecFilters" EntityType="Self.TechSpecFilter" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_dbo_Property_dbo_Application_ApplicationID" Association="Self.FK_dbo_Property_dbo_Application_ApplicationID">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SubCategory_dbo_Category_CategoryID" Association="Self.FK_dbo_SubCategory_dbo_Category_CategoryID">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID" Association="Self.FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID">
+            <End Role="Manufactures" EntitySet="Manufactures" />
+            <End Role="ManufactureSeries" EntitySet="ManufactureSeries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ManufactureSeries_dbo_Series_CourseID" Association="Self.FK_dbo_ManufactureSeries_dbo_Series_CourseID">
+            <End Role="Series" EntitySet="Series" />
+            <End Role="ManufactureSeries" EntitySet="ManufactureSeries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SeriesModels_dbo_Models_ModelID" Association="Self.FK_dbo_SeriesModels_dbo_Models_ModelID">
+            <End Role="Models" EntitySet="Models" />
+            <End Role="SeriesModels" EntitySet="SeriesModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Orders_dbo_User_UserID" Association="Self.FK_dbo_Orders_dbo_User_UserID">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Shipments_dbo_Orders_OrderID" Association="Self.FK_dbo_Shipments_dbo_Orders_OrderID">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Shipments" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Property_dbo_ProductProperty_ProductPropertyID" Association="Self.FK_dbo_Property_dbo_ProductProperty_ProductPropertyID">
+            <End Role="ProductProperty" EntitySet="ProductProperties" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TechSpecFilter_dbo_Property_PropertyID" Association="Self.FK_dbo_TechSpecFilter_dbo_Property_PropertyID">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="TechSpecFilter" EntitySet="TechSpecFilters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SeriesModels_dbo_Series_SiriesID" Association="Self.FK_dbo_SeriesModels_dbo_Series_SiriesID">
+            <End Role="Series" EntitySet="Series" />
+            <End Role="SeriesModels" EntitySet="SeriesModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID" Association="Self.FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="TechSpecFilter" EntitySet="TechSpecFilters" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MarketplaceWebPortalModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ApplicationInOrOut" ColumnName="ApplicationInOrOut" />
+                <ScalarProperty Name="MountingLocation" ColumnName="MountingLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufactures">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Manufacture">
+              <MappingFragment StoreEntitySet="Manufactures">
+                <ScalarProperty Name="ManufactureID" ColumnName="ManufactureID" />
+                <ScalarProperty Name="ManufactureName" ColumnName="ManufactureName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManufactureSeries">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.ManufactureSery">
+              <MappingFragment StoreEntitySet="ManufactureSeries">
+                <ScalarProperty Name="m_s_id" ColumnName="m_s_id" />
+                <ScalarProperty Name="ManufactureID" ColumnName="ManufactureID" />
+                <ScalarProperty Name="SeriesID" ColumnName="SeriesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Model">
+              <MappingFragment StoreEntitySet="Models">
+                <ScalarProperty Name="Model_id" ColumnName="Model_id" />
+                <ScalarProperty Name="model_name" ColumnName="model_name" />
+                <ScalarProperty Name="model_year" ColumnName="model_year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="ProductImgUrl" ColumnName="ProductImgUrl" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductProperties">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.ProductProperty">
+              <MappingFragment StoreEntitySet="ProductProperty">
+                <ScalarProperty Name="ProductPropertyID" ColumnName="ProductPropertyID" />
+                <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Property">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ProductPropertyID" ColumnName="ProductPropertyID" />
+                <ScalarProperty Name="air_flow" ColumnName="air_flow" />
+                <ScalarProperty Name="power_min" ColumnName="power_min" />
+                <ScalarProperty Name="power_max" ColumnName="power_max" />
+                <ScalarProperty Name="operating_voltage_min" ColumnName="operating_voltage_min" />
+                <ScalarProperty Name="operating_voltage_max" ColumnName="operating_voltage_max" />
+                <ScalarProperty Name="fan_speed_min" ColumnName="fan_speed_min" />
+                <ScalarProperty Name="fan_speed_max" ColumnName="fan_speed_max" />
+                <ScalarProperty Name="number_of_fan_speed" ColumnName="number_of_fan_speed" />
+                <ScalarProperty Name="sound_at_max_speed" ColumnName="sound_at_max_speed" />
+                <ScalarProperty Name="height_min" ColumnName="height_min" />
+                <ScalarProperty Name="height_max" ColumnName="height_max" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="Accessories" ColumnName="Accessories" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Series">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Series">
+              <MappingFragment StoreEntitySet="Series">
+                <ScalarProperty Name="SeriesID" ColumnName="SeriesID" />
+                <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+                <ScalarProperty Name="SeriesInfo" ColumnName="SeriesInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeriesModels">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.SeriesModel">
+              <MappingFragment StoreEntitySet="SeriesModels">
+                <ScalarProperty Name="s_m_id" ColumnName="s_m_id" />
+                <ScalarProperty Name="SeriesID" ColumnName="SeriesID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shipments">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Shipment">
+              <MappingFragment StoreEntitySet="Shipments">
+                <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechSpecFilters">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.TechSpecFilter">
+              <MappingFragment StoreEntitySet="TechSpecFilter">
+                <ScalarProperty Name="TechSpecID" ColumnName="TechSpecID" />
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="MaxVal" ColumnName="MaxVal" />
+                <ScalarProperty Name="MinVal" ColumnName="MinVal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MarketplaceWebPortalModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

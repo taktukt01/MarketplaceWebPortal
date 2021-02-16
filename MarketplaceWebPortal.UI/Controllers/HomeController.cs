@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MarketplaceWebPortal.EntityLayer.Repository;
 
-namespace MarketplaceWebApp.Controllers
+namespace MarketplaceWebPortal.UI.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
+            var _repository = new ProductRepository();
+            var _products = _repository.getProductDetails();
+            return View(_products);
         }
 
         public ActionResult About()

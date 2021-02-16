@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MarketplaceWebApp
+namespace MarketplaceWebPortal.UI
 {
     public class FilterConfig
     {

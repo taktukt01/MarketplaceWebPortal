@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{5007701f-634b-4430-af38-323d728680a9}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -65,7 +65,6 @@
     <Build Include="Models.sql" />
     <Build Include="Orders.sql" />
     <Build Include="Product.sql" />
-    <Build Include="ProductImage.sql" />
     <Build Include="ProductProperty.sql" />
     <Build Include="Property.sql" />
     <Build Include="Series.sql" />

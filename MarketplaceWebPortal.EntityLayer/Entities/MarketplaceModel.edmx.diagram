@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fbf2450b39174e469d058ba06df11944" Name="Diagram1">
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Application" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Category" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Manufacture" Width="1.5" PointX="5.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.ManufactureSery" Width="1.5" PointX="8" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Model" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Order" Width="1.5" PointX="10" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Product" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.ProductProperty" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Property" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Series" Width="1.5" PointX="5.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.SeriesModel" Width="1.5" PointX="8" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Shipment" Width="1.5" PointX="12.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.SubCategory" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.TechSpecFilter" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.User" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_Property_dbo_Application_ApplicationID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_SubCategory_dbo_Category_CategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_ManufactureSeries_dbo_Manufactures_ManufactureID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_ManufactureSeries_dbo_Series_CourseID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_SeriesModels_dbo_Models_ModelID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_Orders_dbo_User_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_Shipments_dbo_Orders_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_Property_dbo_ProductProperty_ProductPropertyID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_TechSpecFilter_dbo_Property_PropertyID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_SeriesModels_dbo_Series_SiriesID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
