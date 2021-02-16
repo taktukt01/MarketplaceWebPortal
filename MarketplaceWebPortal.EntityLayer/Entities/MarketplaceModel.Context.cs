@@ -13,6 +13,9 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
+
+
+    /// database context
     public partial class Entities : DbContext
     {
         public Entities()
