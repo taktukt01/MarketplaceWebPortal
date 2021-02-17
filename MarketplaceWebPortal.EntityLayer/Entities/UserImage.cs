@@ -12,17 +12,10 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class UserImage
     {
-        public int ProductID { get; set; }
-        public string ProductImgUrl { get; set; }
-        public string ProductName { get; set; }
-        public int ModelID { get; set; }
-        public int SubCategoryID { get; set; }
-        public int ManufactureID { get; set; }
-    
-        public virtual Model Model { get; set; }
-        public virtual SubCategory SubCategory { get; set; }
-        public virtual Manufacture Manufacture { get; set; }
+        public int UserImgID { get; set; }
+        public string ImgTitle { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

@@ -13,13 +13,10 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-
-
-    /// database context class
     public partial class Entities : DbContext
     {
         public Entities()
-            : base("name=MarketplaceWebPortalEntities")
+            : base("name=Entities")
         {
         }
     
@@ -43,12 +40,5 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         public virtual DbSet<SubCategory> SubCategories { get; set; }
         public virtual DbSet<TechSpecFilter> TechSpecFilters { get; set; }
         public virtual DbSet<User> Users { get; set; }
-    
-    
-        
-
     }
-
-
-    
 }

@@ -18,6 +18,7 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         public SubCategory()
         {
             this.TechSpecFilters = new HashSet<TechSpecFilter>();
+            this.Products = new HashSet<Product>();
         }
     
         public int SubCategoryID { get; set; }
@@ -27,5 +28,7 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TechSpecFilter> TechSpecFilters { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
