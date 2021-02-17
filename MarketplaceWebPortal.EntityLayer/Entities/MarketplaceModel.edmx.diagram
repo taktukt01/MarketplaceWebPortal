@@ -31,9 +31,6 @@
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_TechSpecFilter_dbo_Property_PropertyID" ManuallyRouted="false" />
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_SeriesModels_dbo_Series_SiriesID" ManuallyRouted="false" />
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID" ManuallyRouted="false" />
-        <AssociationConnector Association="MarketplaceWebPortalModel.ProductModel" />
-        <AssociationConnector Association="MarketplaceWebPortalModel.ProductSubCategory" />
-        <AssociationConnector Association="MarketplaceWebPortalModel.ProductManufacture" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

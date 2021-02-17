@@ -18,7 +18,6 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         public Model()
         {
             this.SeriesModels = new HashSet<SeriesModel>();
-            this.Products = new HashSet<Product>();
         }
     
         public int Model_id { get; set; }
@@ -27,7 +26,5 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SeriesModel> SeriesModels { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\TAKTUK\Desktop\MarketplaceWebPortal\MarketplaceWebPortal.EntityLayer\Entities\MarketplaceModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\VSWork\ITeam\taktukt01\MarketplaceWebPortal\MarketplaceWebPortal.EntityLayer\Entities\MarketplaceModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

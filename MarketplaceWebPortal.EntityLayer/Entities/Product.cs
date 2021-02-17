@@ -15,14 +15,10 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     public partial class Product
     {
         public int ProductID { get; set; }
+        public Nullable<int> ModelID { get; set; }
+        public Nullable<int> ManufacturerID { get; set; }
         public string ProductImgUrl { get; set; }
+        public Nullable<int> SubCategoryID { get; set; }
         public string ProductName { get; set; }
-        public int ModelID { get; set; }
-        public int SubCategoryID { get; set; }
-        public int ManufactureID { get; set; }
-    
-        public virtual Model Model { get; set; }
-        public virtual SubCategory SubCategory { get; set; }
-        public virtual Manufacture Manufacture { get; set; }
     }
 }
