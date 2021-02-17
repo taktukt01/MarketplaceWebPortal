@@ -1,0 +1,287 @@
+﻿
+@{
+    ViewBag.Title = "Summary";
+    Layout = null;
+
+}
+
+
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+
+
+<body>
+
+
+
+    <nav>
+        @*Logo , Search bar , User profile image *@
+
+    </nav>
+
+
+    @* make flex container in the future..? *@
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-4 border mt-5">
+                @*  Criteria *@
+
+                @using (Html.BeginForm("Product", "Summary", FormMethod.Post))
+                {
+
+                    <div class="row border mb-3">
+
+                        @Html.Label("Search")
+                        <button class="btn btn-info ml-5">Save</button>
+                        <button class="btn btn-info float-right">Clear</button>
+
+                    </div>
+                    <div class="row border ">
+                        <p class="col-6 border">Product</p>
+                        <p class="col-6 border">Project</p>
+                    </div>
+
+                    <div class="row border">
+
+                        @* create an accordian *@
+
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">
+
+
+                                        <p class="text-justify" data-toggle="collapse" href="#collapse1">Model Year: </p>
+
+                                    </h5>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body">
+
+
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Start" />
+                                            <span class="input-group-addon">-</span>
+                                            <input type="text" class="form-control" placeholder="End" />
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    
+
+
+                    </div>
+
+                    <div class="row border">
+
+                        @* create an accordian *@
+
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title"> 
+
+                                        <p class="text-justify" data-toggle="collapse" href="#collapse2">Tech Specifications </p>
+
+                                   </h5>
+                                </div>
+
+                                <div id="collapse2" class="panel-collapse collapse">
+                                    <div class="panel-body ">
+
+                                        <p>Airflow(CFM)</p>
+
+                                        @* Min Max value  *@
+                                        <label for="MinValue" class="form-label">0</label>
+                                        <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                                        <label for="MaxValue" class="form-label">100</label>
+
+
+                                        <p>
+                                            Max Power(W)
+                                        </p>
+
+                                        @* Min Max value  *@
+                                        <label for="MinValue" class="form-label">0</label>
+                                        <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                                        <label for="MaxValue" class="form-label">100</label>
+
+
+                                        @* Min Max value  *@
+                                        <p>
+                                            Sound at max power (dBA)
+                                        </p>
+                                        <label for="MinValue" class="form-label">0</label>
+                                        <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                                        <label for="MaxValue" class="form-label">100</label>
+
+
+                                        @* Min Max value  *@
+                                        <p>
+                                            Fan sweep diameter(in)  
+                                        </p>
+                                        <label for="MinValue" class="form-label">0</label>
+                                        <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                                        <label for="MaxValue" class="form-label">100</label>
+
+
+
+
+
+                                    </div>
+
+                                </div>
+
+                             
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                }
+
+            </div>
+
+
+            @*Product Results*@ 
+        <div class="col-8">
+            @*  product results *@
+
+            @*  for each product result...
+
+        make a bootstrap card with result*@
+
+            @*<div class="card-group">
+            <div class="card">
+                <img class="card-img-top" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=27c09d27ccbd139fd0f7d1cef8f7d41d" style="width:15rem" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=27c09d27ccbd139fd0f7d1cef8f7d41d" style="width:15rem" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="..." style="width:15rem" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>*@
+
+            @* Category Name >   SubCategory Name*@
+            <strong >Mechanical</strong> > HVAC Fans
+
+            <div class="card-deck mt-4">
+
+                <div class="card">
+                    @* product image *@
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        @* product description (Manufacture, Series, Model) *@
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    @* Tech Specs *@
+                    <div class="card-footer">
+                        <!--<small class="text-muted">-->@*Last updated 3 mins ago*@<!--</small>-->
+
+                        <div class="row">
+                            <div class="col">
+                                @Html.Label("Compare")
+                                @Html.CheckBox("Compare", false)
+
+
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary">Add to</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-footer">
+
+                        <div class="row">
+                            <div class="col">
+                                @Html.Label("Compare")
+                                @Html.CheckBox("Compare", false)
+
+
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary">Add to</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    </div>
+                    <div class="card-footer">
+
+                        <div class="row">
+                            <div class="col">
+                                @Html.Label("Compare")
+                                @Html.CheckBox("Compare", false)
+
+
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary">Add to</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
