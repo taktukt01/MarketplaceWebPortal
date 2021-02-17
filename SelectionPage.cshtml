@@ -1,0 +1,162 @@
+﻿@model IEnumerable<MarketplaceWebPortal.Models.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        #grad1 {
+            height: 1000px;
+            background-color: steelblue;
+            background-image: linear-gradient(steelblue, white);
+        }
+
+        .dropdown {
+            text-align: center;
+        }
+
+        select {
+            color: #999;
+            height: 30px;
+            width: 400px;
+            border-radius: 4px;
+            border: 1px solid #AAAAAA;
+        }
+
+        button {
+            background-color: blue;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="grad1">
+    <script>
+        $(document).ready(function () {
+            
+            $(".dropdown-menu").find("li a").click(function (e) {
+                $('.selectedLi').removeClass('selectedLi');
+                $(this).addClass('selectedLi');
+                var text = $('.dropdown-menu').find("li a.selectedLi").text();
+                if (text == "Mechanical") {
+                    $("#products").empty();
+                    $("#products").append("<option value=''></option><option value=''></option><option value='Generators'>Generators</option>");
+
+                } else if (text == "Electrical") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Toasters'>Toasters</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
+
+                } else if (text == "Stationary") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Staplers'>Staplers</option><option value='Notepads'>Notepads</option><option value='Stamps'>Stamps</option>");
+
+                } else if (text == "Furniture") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Sofas'>Sofas</option><option value='Couches'>Couches</option><option value='Tables'>Tables</option>");
+
+                } else {
+                    $("#products").empty();
+                    $("#products").append("<option value='SelectCate'>Select Category First</option>");
+                }
+                e.preventDefault();
+            });
+        });
+       
+        $(function () {
+            $('#myForm').submit(function () {
+                var e = document.getElementById("txt-search");
+                var text1 = $('.dropdown-menu').find("li a.selectedLi").text();
+                var text = e.options[e.selectedIndex].text;
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: {
+                        'selectedtText': text,
+                        'Category': text1
+                    },
+                    success: function (result) {
+                        alert("Selected value: " + select);
+                    }
+                });
+                return false;
+            });
+        });
+
+    </script>
+
+    <br><br><br><br><br><br><br><br>
+
+    <div style="text-align:center">
+        <img src="~/Image/logo.png" alt="Logo">
+    </div>
+
+    <br>
+
+    <h3>Building Product Selection Platform</h3>
+
+    <br>
+
+    <div class="container">
+
+        <form action="/Selection/Details" method="post" id="myForm">
+
+            <div class="dropdown">
+                <button style="color:black" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Category
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="">Mechanical</a></li>
+                    <li><a href="">Electrical</a></li>
+                    <li><a href="">Stationary</a></li>
+                    <li><a href="">Furniture</a></li>
+                </ul>
+                <select id="products" name="products">
+                    <option value="" disabled selected hidden>Search...</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+                <button style="background-color:steelblue; border-color:steelblue" type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
