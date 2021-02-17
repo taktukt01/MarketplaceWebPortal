@@ -16,7 +16,7 @@ namespace MarketplaceWebPortal.UI.Controllers
         SqlDataReader dr;
         void connectionString()
         {
-            con.ConnectionString = "Data Source=(localdb)/ProjectsV13;Initial Catalog=MarketplaceWebPortal;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+            con.ConnectionString = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=MarketplaceWebPortal;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
         }
 
 
