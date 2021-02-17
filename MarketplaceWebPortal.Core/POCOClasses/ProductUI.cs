@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace MarketplaceWebPortal.Core.POCOClasses
 {
+    //model of Product
     public class ProductUI
     {
         public int ProductID { get; set; }
