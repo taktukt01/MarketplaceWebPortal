@@ -1,0 +1,100 @@
+﻿@model MarketplaceWebPortal.Core.POCOClasses.UserUI
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>New User Registration</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+        }
+    };
+</script>
+
+
+@using (Html.BeginForm("Index", "User",FormMethod.Post,new { enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="form-group">
+    <div class="col-md-10" >
+        <label style="margin-left: 250px">Image Preview</label>
+        <br />
+        <img style="margin-left: 150px" id="output" />
+        <br />
+        <label style="margin-left: 250px"> Your Profile Pic</label>
+    </div>
+</div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImgUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+        
+        <div class="col-md-10">
+            
+            <input type="file" name="file" accept="image/*" onchange="loadFile(event)" />
+            @Html.ValidationMessageFor(model => model.ImgUrl, "", new { @class = "text-danger" })
+
+        </div>
+        
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password_Comp, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password_Comp, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password_Comp, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Sign Up" class="btn btn-primary" style="margin-left: 200px" />
+        </div>
+    </div>
+    @Html.ViewData["Message"]
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Login", "Login", "Login")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

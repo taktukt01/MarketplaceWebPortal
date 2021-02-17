@@ -16,7 +16,7 @@ namespace MarketplaceWebPortal.UI
         {
             var container = new UnityContainer();
             container.RegisterType<IProductRepository, ProductRepository>();
-
+            container.RegisterType<IUserRepository, UserRepository>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             return container;
         }
