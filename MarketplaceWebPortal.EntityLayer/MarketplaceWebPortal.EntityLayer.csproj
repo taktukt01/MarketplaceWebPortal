@@ -133,90 +133,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\MarketplaceModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MarketplaceModel.edmx</DependentUpon>
-      <LastGenOutput>MarketplaceModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entities\MarketplaceModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MarketplaceModel.edmx</DependentUpon>
-      <LastGenOutput>MarketplaceModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Application.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Category.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Manufacture.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\ManufactureSery.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\MarketplaceModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MarketplaceModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\MarketplaceModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\MarketplaceModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MarketplaceModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Model.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Order.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Product.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\ProductProperty.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Property.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Series.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\SeriesModel.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Shipment.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\SubCategory.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TechSpecFilter.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\User.cs">
-      <DependentUpon>MarketplaceModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ProductDetailsRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Entities\MarketplaceModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MarketplaceModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Entities\MarketplaceModel.edmx.diagram">
-      <DependentUpon>MarketplaceModel.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -233,6 +157,9 @@
       <Project>{fd9998dc-b405-4462-8fea-569a6b898f01}</Project>
       <Name>MarketplaceWebPortal.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

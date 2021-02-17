@@ -4,25 +4,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MarketplaceWebPortal.Core.Interfaces;
+using MarketplaceWebPortal.Core.POCOClasses;
 using MarketplaceWebPortal.EntityLayer.Repository;
 
 namespace MarketplaceWebPortal.UI.Controllers
 {
-    public class HomeController : Controller
+    public class ProductDetailController : Controller
     {
-        IProductRepository _iProductRepository;
+        IProductDetailsRepository _iProductRepository;
         
-        public HomeController(IProductRepository iProductRepository)
+        public ProductDetailController(IProductDetailsRepository repository)
         {
-            _iProductRepository = iProductRepository;
+            _iProductRepository = repository;
         }
 
         
 
-        public ActionResult Index()
+        public ActionResult Detail()
         {
-            var _products = _iProductRepository.getProductDetails();
-            return View(_products);
+            var _products = _iProductRepository.getProductDetail(1);
+            List<ProductDetailUI> list = new List<ProductDetailUI>();
+            list.Add(_products);
+            return View(list);
+
         }
 
         public ActionResult About()
