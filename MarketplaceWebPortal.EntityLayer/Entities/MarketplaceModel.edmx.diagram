@@ -27,10 +27,18 @@
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_SeriesModels_dbo_Models_ModelID" ManuallyRouted="false" />
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_Orders_dbo_User_UserID" ManuallyRouted="false" />
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_Shipments_dbo_Orders_OrderID" ManuallyRouted="false" />
-        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_Property_dbo_ProductProperty_ProductPropertyID" ManuallyRouted="false" />
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_TechSpecFilter_dbo_Property_PropertyID" ManuallyRouted="false" />
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_SeriesModels_dbo_Series_SiriesID" ManuallyRouted="false" />
         <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_TechSpecFilter_dbo_SubCategory_SubCategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.ProductModel" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.ProductManufacture" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.ID" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.C__RefactorLog" Width="1.5" PointX="10.375" PointY="8.75" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.Category1" Width="1.5" PointX="10.375" PointY="6" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.ProductImage" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.SubCategory1" Width="1.5" PointX="12.625" PointY="5.875" />
+        <EntityTypeShape EntityType="MarketplaceWebPortalModel.UserImage" Width="1.5" PointX="12.375" PointY="8.75" />
+        <AssociationConnector Association="MarketplaceWebPortalModel.FK_dbo_SubCategory_dbo_Category_CategoryID1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

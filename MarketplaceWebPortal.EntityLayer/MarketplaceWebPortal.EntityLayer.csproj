@@ -138,6 +138,7 @@
       <DependentUpon>MarketplaceModel.edmx</DependentUpon>
       <LastGenOutput>MarketplaceModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Entities\MarketplaceModel.edmx.sql" />
     <Content Include="Entities\MarketplaceModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MarketplaceModel.edmx</DependentUpon>
@@ -150,6 +151,12 @@
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Category.cs">
+      <DependentUpon>MarketplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Category1.cs">
+      <DependentUpon>MarketplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\C__RefactorLog.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Manufacture.cs">
@@ -182,6 +189,9 @@
     <Compile Include="Entities\Product.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ProductImage.cs">
+      <DependentUpon>MarketplaceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\ProductProperty.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
@@ -200,10 +210,16 @@
     <Compile Include="Entities\SubCategory.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\SubCategory1.cs">
+      <DependentUpon>MarketplaceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\TechSpecFilter.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\User.cs">
+      <DependentUpon>MarketplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserImage.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

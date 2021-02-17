@@ -12,9 +12,12 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductProperty
+    public partial class SubCategory1
     {
-        public int ProductPropertyID { get; set; }
-        public Nullable<int> PropertyValue { get; set; }
+        public int SubCategoryID { get; set; }
+        public Nullable<int> CategoryID { get; set; }
+        public string SubCategoryName { get; set; }
+    
+        public virtual Category1 Category { get; set; }
     }
 }

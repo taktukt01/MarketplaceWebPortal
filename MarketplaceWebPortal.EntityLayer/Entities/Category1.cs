@@ -12,23 +12,18 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class SubCategory
+    public partial class Category1
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SubCategory()
+        public Category1()
         {
-            this.TechSpecFilters = new HashSet<TechSpecFilter>();
-            this.Products = new HashSet<Product>();
+            this.SubCategories = new HashSet<SubCategory1>();
         }
     
-        public int SubCategoryID { get; set; }
-        public Nullable<int> CategoryID { get; set; }
-        public string SubCategoryName { get; set; }
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
     
-        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TechSpecFilter> TechSpecFilters { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<SubCategory1> SubCategories { get; set; }
     }
 }

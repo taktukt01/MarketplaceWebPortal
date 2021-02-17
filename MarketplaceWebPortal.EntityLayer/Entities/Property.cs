@@ -22,7 +22,6 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     
         public int PropertyID { get; set; }
         public Nullable<int> ApplicationID { get; set; }
-        public Nullable<int> ProductPropertyID { get; set; }
         public int air_flow { get; set; }
         public decimal power_min { get; set; }
         public decimal power_max { get; set; }
@@ -38,7 +37,6 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         public Nullable<int> Accessories { get; set; }
     
         public virtual Application Application { get; set; }
-        public virtual ProductProperty ProductProperty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TechSpecFilter> TechSpecFilters { get; set; }
     }

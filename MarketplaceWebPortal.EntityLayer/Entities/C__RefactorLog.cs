@@ -12,9 +12,8 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductProperty
+    public partial class C__RefactorLog
     {
-        public int ProductPropertyID { get; set; }
-        public Nullable<int> PropertyValue { get; set; }
+        public System.Guid OperationKey { get; set; }
     }
 }

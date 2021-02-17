@@ -14,11 +14,21 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Models = new HashSet<Model>();
+        }
+    
         public int ProductID { get; set; }
-        public Nullable<int> ModelID { get; set; }
-        public Nullable<int> ManufacturerID { get; set; }
         public string ProductImgUrl { get; set; }
-        public Nullable<int> SubCategoryID { get; set; }
         public string ProductName { get; set; }
+        public int ManufactureID { get; set; }
+        public int SubCategoryID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Model> Models { get; set; }
+        public virtual Manufacture Manufacture { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
     }
 }

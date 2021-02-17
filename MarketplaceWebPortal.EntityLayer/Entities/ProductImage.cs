@@ -12,9 +12,10 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductProperty
+    public partial class ProductImage
     {
-        public int ProductPropertyID { get; set; }
-        public Nullable<int> PropertyValue { get; set; }
+        public int ProductImgID { get; set; }
+        public string ProductImgTitle { get; set; }
+        public string ProductImgUrl { get; set; }
     }
 }

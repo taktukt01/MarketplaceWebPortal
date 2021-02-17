@@ -23,8 +23,10 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         public int Model_id { get; set; }
         public string model_name { get; set; }
         public int model_year { get; set; }
+        public int ProductID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SeriesModel> SeriesModels { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
