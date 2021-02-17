@@ -28,7 +28,17 @@ namespace MarketplaceWebPortal.UI.Controllers
             return View(list);
 
         }
-
+        public ActionResult Compare()
+        {
+            List<int> idList = new List<int> { 1, 2, 3 };
+            List<ProductDetailUI> list = new List<ProductDetailUI>();
+            for (int i = 0; i < idList.Count; i++)
+            {
+                var _products = _iProductRepository.getProductDetail(idList[i]);
+                list.Add(_products);
+            }
+            return View(list);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
