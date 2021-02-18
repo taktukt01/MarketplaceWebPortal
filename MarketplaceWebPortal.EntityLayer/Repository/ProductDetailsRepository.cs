@@ -14,7 +14,9 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
         {
             ProductDetailUI detail = new ProductDetailUI();
 
-
+            //categories
+            detail.CategoryID = 1;
+            detail.CategoryName = "Electrical";
 
             detail.model_name = "Customm Model";
             detail.model_year = 2020;
@@ -43,5 +45,9 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
             detail.Accessories = "With Light";
             return detail;
         }
+
+
     }
+
+
 }

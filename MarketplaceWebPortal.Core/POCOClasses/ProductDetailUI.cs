@@ -6,6 +6,8 @@ namespace MarketplaceWebPortal.Core.POCOClasses
 {
     public class ProductDetailUI
     {
+
+
         public int ProductID { get; set; }
         //model
         public string model_name { get; set; }
@@ -16,6 +18,11 @@ namespace MarketplaceWebPortal.Core.POCOClasses
         public string ManufactureName { get; set; }
 
         //property
+
+        //Category, SubCategory
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
+
 
         //property-application
 

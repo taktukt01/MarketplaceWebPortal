@@ -1,0 +1,26 @@
+﻿#grad1 {
+    background-color: steelblue;
+    background-image: linear-gradient(steelblue, white);
+}
+
+.dropdown {
+    text-align: center;
+}
+
+select {
+    color: #999;
+    height: 30px;
+    width: 400px;
+    border-radius: 4px;
+    border: 1px solid #AAAAAA;
+}
+
+button {
+    background-color: blue;
+}
+
+h3 {
+    text-align: center;
+}
+
+

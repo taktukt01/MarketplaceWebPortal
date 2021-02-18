@@ -9,5 +9,9 @@ namespace MarketplaceWebPortal.Core.Interfaces
     public interface IProductRepository
     {
         List<ProductUI> getProductDetails();
+
+        List<ProductUI> getAllProducts();
+
+        List<ProductUI> SearchProduct(string subcategoryName);
     }
 }
