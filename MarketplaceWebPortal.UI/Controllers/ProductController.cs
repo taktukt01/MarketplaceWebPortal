@@ -13,6 +13,11 @@ namespace MarketplaceWebPortal.UI.Controllers
 
         IProductRepository _productRepository;
 
+
+        public ProductController(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
         // GET: Product
         public ActionResult Index()
         {
@@ -21,9 +26,8 @@ namespace MarketplaceWebPortal.UI.Controllers
 
 
         // GET: /Product/Summary
-        public ActionResult Summary(IProductRepository productRepository)
+        public ActionResult Summary()
         {
-            _productRepository = productRepository;
             //get URL request parameter value
             var subcategoryName =Request.QueryString["subcategory"];
             //what does this return? --> List<ProductUI>
