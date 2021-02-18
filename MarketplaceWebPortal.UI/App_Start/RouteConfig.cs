@@ -13,11 +13,7 @@ namespace MarketplaceWebPortal.UI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("{resource}.config");
-            routes.MapRoute(
-                name: "Compare",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ProductDetail", action = "Compare", id = UrlParameter.Optional }
-            );
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
