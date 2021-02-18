@@ -2,7 +2,6 @@
 (
     [PropertyID] INT  IDENTITY (1,1) NOT NULL,
 	[ApplicationID] INT  NULL,
-	[ProductPropertyID] INT NULL,
 	[air_flow] INT NOT NULL DEFAULT 5,
     [power_min] DECIMAL (4,2) NOT NULL DEFAULT 1,
     [power_max] DECIMAL (4,2) NOT NULL DEFAULT 999,
@@ -16,9 +15,11 @@
     [height_max] DECIMAL NOT NULL DEFAULT 999,
     [weight] DECIMAL NOT NULL DEFAULT 1,
 	[Accessories]  INT  NULL,
-	PRIMARY KEY CLUSTERED ([PropertyID] ASC), 
+	[ProductID] INT NOT NULL, 
+    [SubCategoryID] INT NOT NULL, 
+    PRIMARY KEY CLUSTERED ([PropertyID] ASC), 
 	 CONSTRAINT [FK_dbo.Property_dbo.Application_ApplicationID] FOREIGN KEY ([ApplicationID]) 
-	 REFERENCES [dbo].[Application] ([ApplicationID]) ON DELETE CASCADE,
-	  CONSTRAINT [FK_dbo.Property_dbo.ProductProperty_ProductPropertyID] FOREIGN KEY ([ProductPropertyID]) 
-	 REFERENCES [dbo].[ProductProperty] ([ProductPropertyID]) ON DELETE CASCADE
+	 REFERENCES [dbo].[Application] ([ApplicationID]) ON DELETE CASCADE, 
+    CONSTRAINT [FK_dbo.Property_dbo.Product_ProductID] FOREIGN KEY ([ProductID]) REFERENCES [Product]([ProductID]), 
+    CONSTRAINT [FK_dbo.Property_dbo.Subcategory_SubcategoryID] FOREIGN KEY ([SubcategoryID]) REFERENCES [SubCategory]([SubcategoryID])
 )
