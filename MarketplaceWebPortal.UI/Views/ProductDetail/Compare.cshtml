@@ -1,0 +1,317 @@
+﻿@model List<MarketplaceWebPortal.Core.POCOClasses.ProductDetailUI>
+
+@{
+    ViewBag.Title = "Compare";
+}
+
+@foreach (var item in Model)
+{
+
+}
+<div class="row">
+
+    <div class="col-md-6">
+        <h4>Mechanical > HVAC Fans > Compare</h4>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label></label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    <img src="@Html.DisplayFor(itemModel => item.air_flow)" alt="No Picture Found" width="500" height="500" />
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active" colspan="4">
+                <label>DESCRIPTION</label>
+            </td>
+
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Manufacture</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.ManufactureName)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Series</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.series_name)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Model</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.model_name)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active" colspan="4">
+                <label>TYPE</label>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Use Type</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.use_type)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Application</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.Application)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Accessories</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.Accessories)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Mounting Location</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.MountingLocation)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Model Year</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.model_year)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active" colspan="4">
+                <label>TECHNICAL SPECIFICATIONS</label>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Air Flow(CFM)</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.air_flow)
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Mix Power(W)</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.power_min)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Max Power(W)</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.power_max)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Min Operating Voltage (VAC)</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.operating_voltage_min)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Max Operating Voltage (VAC)</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.operating_voltage_max)
+                </td>
+            }
+
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Min Fan Speed</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.fan_speed_min)
+                </td>
+            }
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Max Fan Speed</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.fan_speed_max)
+                </td>
+            }
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Number of Fan Speeds</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.number_of_fan_speed)
+                </td>
+            }
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Sound at max speed(dBA)</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.sound_at_max_speed)
+                </td>
+            }
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Fan sweep diameter (in)</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.fan_sweep_diameter)
+                </td>
+            }
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Min Height</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.height_min)
+                </td>
+            }
+
+        </tr>
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Max Height</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.height_max)
+                </td>
+            }
+
+        </tr>
+
+        <tr>
+            <td class="field-label col-xs-3 active">
+                <label>Weight</label>
+            </td>
+            @foreach (var item in Model)
+            {
+                <td class="col-xs-3">
+                    @Html.DisplayFor(itemModel => item.weight)
+                </td>
+            }
+
+        </tr>
+
+    </table>
+</div>
+

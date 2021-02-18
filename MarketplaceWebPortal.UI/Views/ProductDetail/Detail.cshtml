@@ -1,0 +1,207 @@
+﻿@model List<MarketplaceWebPortal.Core.POCOClasses.ProductDetailUI>
+@{
+    ViewBag.Title = "DetailPage";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<div class="row">
+
+    <div class="col-md-6">
+        <h2>Product Summary</h2>
+    </div>
+
+</div>
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <p>DESCRIPTION</p>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Manufacture</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.ManufactureName)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Series</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.series_name)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Model</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.model_name)
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p>TYPE</p>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Use Type</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.use_type)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Application</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.Application)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Mounting Location</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.MountingLocation)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Accessories</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.Accessories)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Model Year</label>
+                    </td>
+                    <td class="col-md-8">
+                        @Html.DisplayFor(itemModel => item.model_year)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <p>TECHNICAL SPECIFICATIONS</p>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Air Flow(CFM)</label>
+                    </td>
+                    <td class="col-xs-2" colspan="4">
+                        @Html.DisplayFor(itemModel => item.air_flow)
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Power(W)</label>
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Min
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.power_min)
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Max
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.power_max)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Operating Voltage(VAC)</label>
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Min
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.operating_voltage_min)
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Max
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.operating_voltage_max)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Fan Speed(RPM)</label>
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Min
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.fan_speed_min)
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Max
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.power_max)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Number of Fan Speeds</label>
+                    </td>
+                    <td class="col-xs-8" colspan="4">
+                        @Html.DisplayFor(itemModel => item.number_of_fan_speed)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Sound at max speed(dBA)</label>
+                    </td>
+                    <td class="col-xs-8" colspan="4">
+                        @Html.DisplayFor(itemModel => item.sound_at_max_speed)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Fan sweep diameter (in)</label>
+                    </td>
+                    <td class="col-xs-8" colspan="4">
+                        @Html.DisplayFor(itemModel => item.fan_sweep_diameter)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Height</label>
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Min
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.height_min)
+                    </td>
+                    <td class="field-label col-xs-2 active">
+                        Max
+                    </td>
+                    <td class="col-xs-2">
+                        @Html.DisplayFor(itemModel => item.power_max)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="field-label col-xs-4 active">
+                        <label>Weight</label>
+                    </td>
+                    <td class="col-xs-8" colspan="4">
+                        @Html.DisplayFor(itemModel => item.weight)
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+}

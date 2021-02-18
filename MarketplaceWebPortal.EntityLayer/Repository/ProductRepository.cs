@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MarketplaceWebPortal.EntityLayer.Entities;
+//using MarketplaceWebPortal.EntityLayer.Entities;
 using MarketplaceWebPortal.Core.POCOClasses;
 using MarketplaceWebPortal.Core.Interfaces;
 
@@ -10,7 +10,7 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
 {
     public class ProductRepository:IProductRepository
     {
-        MarketplaceWebPortal.EntityLayer.Entities.Entities _entities;
+        //MarketplaceWebPortal.EntityLayer.Entities.Entities _entities;
         public List<ProductUI> getProductDetails()
         {
             // dummy data
