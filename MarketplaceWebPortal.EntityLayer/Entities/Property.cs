@@ -17,6 +17,7 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Property()
         {
+            this.Products = new HashSet<Product>();
             this.TechSpecFilters = new HashSet<TechSpecFilter>();
         }
     

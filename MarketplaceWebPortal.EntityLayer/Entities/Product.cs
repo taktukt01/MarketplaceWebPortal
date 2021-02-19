@@ -23,12 +23,16 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
         public int ProductID { get; set; }
         public Nullable<int> ModelID { get; set; }
         public Nullable<int> ManufactureID { get; set; }
+        public Nullable<int> SeriesID { get; set; }
         public string ProductImgUrl { get; set; }
         public Nullable<int> SubCategoryID { get; set; }
         public string ProductName { get; set; }
+        public Nullable<int> PropertyID { get; set; }
     
         public virtual Manufacture Manufacture { get; set; }
         public virtual Model Model { get; set; }
+        public virtual Property Property { get; set; }
+        public virtual Series Series { get; set; }
         public virtual SubCategory SubCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Property> Properties { get; set; }
