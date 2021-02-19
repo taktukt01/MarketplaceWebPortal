@@ -13,10 +13,10 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MarketplaceWebPortalEntities2 : DbContext
+    public partial class MarketplaceWebPortalEntities : DbContext
     {
-        public MarketplaceWebPortalEntities2()
-            : base("name=MarketplaceWebPortalEntities2")
+        public MarketplaceWebPortalEntities()
+            : base("MarketplaceWebPortalEntities")
         {
         }
     

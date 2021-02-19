@@ -11,10 +11,10 @@ namespace MarketplaceWebPortal.UI.Controllers
     public class ProductController : Controller
     {
 
-        IProductRepository _productRepository;
+        IProductDetailsRepository _productRepository;
 
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductDetailsRepository productRepository)
         {
             _productRepository = productRepository;
         }
@@ -31,11 +31,11 @@ namespace MarketplaceWebPortal.UI.Controllers
             //get URL request parameter value
             var subcategoryName =Request.QueryString["subcategory"];
             //what does this return? --> List<ProductUI>
-           List<ProductUI> list = _productRepository.SearchProduct(subcategoryName);
+           //List<ProductDetailUI> list = _productRepository.SearchProduct(subcategoryName);
 
 
 
-            return View(list);
+            return View();
 
         }
     }

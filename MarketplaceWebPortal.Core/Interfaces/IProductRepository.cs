@@ -12,6 +12,6 @@ namespace MarketplaceWebPortal.Core.Interfaces
 
         List<ProductUI> getAllProducts();
 
-        List<ProductUI> SearchProduct(string subcategoryName);
+        //List<ProductDetailUI> SearchProduct(string subcategoryName);
     }
 }

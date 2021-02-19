@@ -8,5 +8,7 @@ namespace MarketplaceWebPortal.Core.Interfaces
     public interface IProductDetailsRepository
     {
         ProductDetailUI getProductDetail(int productID);
+
+        List<ProductDetailUI> searchProduct(string subcategoryName);
     }
 }

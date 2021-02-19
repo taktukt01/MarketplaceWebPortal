@@ -774,7 +774,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MarketplaceWebPortalEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MarketplaceWebPortalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Applications" EntityType="Self.Application" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Manufactures" EntityType="Self.Manufacture" />
@@ -855,7 +855,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MarketplaceWebPortalModelStoreContainer" CdmEntityContainer="MarketplaceWebPortalEntities2">
+        <EntityContainerMapping StorageEntityContainer="MarketplaceWebPortalModelStoreContainer" CdmEntityContainer="MarketplaceWebPortalEntities">
           <EntitySetMapping Name="Applications">
             <EntityTypeMapping TypeName="MarketplaceWebPortalModel.Application">
               <MappingFragment StoreEntitySet="Application">
