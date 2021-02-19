@@ -1,5 +1,5 @@
 ﻿
-@model List<MarketplaceWebPortal.Core.POCOClasses.ProductUI>
+@model List<MarketplaceWebPortal.Core.POCOClasses.ProductDetailUI>
 @{
     ViewBag.Title = "Summary";
     Layout = null;
@@ -18,13 +18,17 @@
 
 
 <body>
+
+
+  
+
     <nav id="grad1">
 
 
         <div class="d-flex justify-content-between">
             <div class="p-2 bd-highlight">
 
-                <img src="~/Img/Joole_250x150.png" class="img-responsive"/>
+                <img src="~/Img/Joole_250x150.png" class="img-responsive" />
 
             </div>
             <div class="p-2 bd-highlight">
@@ -49,7 +53,7 @@
                             <option value=""></option>
                             <option value=""></option>
                         </select>
-                        <button style="background-color:steelblue; border-color:steelblue" type="button" class="btn btn-info">
+                        <button  class="btn btn-info">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </div>
@@ -65,10 +69,10 @@
 
             </div>
         </div>
-        </nav>
+    </nav>
 
 
-  
+
 
 
     @* make flex container in the future..? *@
@@ -82,29 +86,29 @@
                 @using (Html.BeginForm("Product", "Summary", FormMethod.Post))
                 {
 
-                <div class="row justify-content-start">
+                    <div class="row justify-content-start">
 
-                    <div class="col-2">
-                        @Html.Label("Search")
+                        <div class="col-2">
+                            @Html.Label("Search")
+
+                        </div>
+                        <div class="col-3 offset-4">
+                            <button class="btn btn-info squared">Save</button>
+
+                        </div>
+                        <div class="col-3 ">
+                            <button class="btn btn-info squared">Clear</button>
+
+                        </div>
 
                     </div>
-                    <div class="col-3 offset-4">
-                        <button class="btn btn-info squared">Save</button>
-
-                    </div>
-                    <div class="col-3 ">
-                        <button class="btn btn-info squared">Clear</button>
-
-                    </div>
-
-                </div>
                     <div class="row border ">
                         <p class="col-6 border">Product</p>
                         <p class="col-6 border">Project</p>
                     </div>
 
                     <div class="row border">
-                       
+
 
 
 
@@ -257,87 +261,145 @@
                         </div>
                     </div>*@
 
+
+
                 @* Category Name >   SubCategory Name*@
                 <div class="mt-5">
-                    <strong>Mechanical</strong> > HVAC Fans
+                    @*<strong>Mechanical</strong>*@ <!--> HVAC Fans-->
+                    <div class="card-deck">
+                        @{ 
+
+                            foreach (var item in Model)
+                            {
+                            @Html.DisplayFor(m => item.CategoryName)
+
+                            @Html.DisplayFor(m => item.SubCategoryName)
+
+
+
+                            <div class="card">
+                            @* product image *@
+
+                            <img class="card-img-top" src=item.ProductURL alt="Card image cap">
+
+                            <div class="card-body">
+                                @* product description (Manufacture, Series, Model) *@
+                                <h5 class="card-title">
+
+                                    @Html.LabelFor(m => item.ManufactureName)
+                                    @Html.LabelFor(m => item.series_name)
+                                    @Html.LabelFor(m => item.model_name)
+
+                                </h5>
+                                <p>
+                                    @Html.LabelFor(m => item.air_flow)
+
+                                </p>
+
+
+                            </div>
+                            @* Tech Specs *@
+                            <div class="card-footer">
+                                <!--<small class="text-muted">-->@*Last updated 3 mins ago*@<!--</small>-->
+
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.Label("Compare")
+                                        @Html.CheckBox("Compare", false)
+
+
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-primary">Add to</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                                }
+                            }
+
                 </div>
 
-                <div class="card-deck ">
+                    <!--<div class="card-deck ">
 
-                    <div class="card">
-                        @* product image *@
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            @* product description (Manufacture, Series, Model) *@
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        @* Tech Specs *@
-                        <div class="card-footer">
-                            <!--<small class="text-muted">-->@*Last updated 3 mins ago*@<!--</small>-->
+                        <div class="card">-->
+                            @* product image *@
+                            <!--<img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-body">-->
+                                @* product description (Manufacture, Series, Model) *@
+                                <!--<h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>-->
+                            @* Tech Specs *@
+                            <!--<div class="card-footer">
+                                <!--<small class="text-muted">-->--><!--@*Last updated 3 mins ago*@--><!--</small>-->
 
-                            <div class="row">
-                                <div class="col">
-                                    @Html.Label("Compare")
-                                    @Html.CheckBox("Compare", false)
+                                <!--<div class="row">
+                                    <div class="col">
+                                        @Html.Label("Compare")
+                                        @Html.CheckBox("Compare", false)
 
 
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-primary">Add to</button>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <button class="btn btn-primary">Add to</button>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-
-                            <div class="row">
-                                <div class="col">
-                                    @Html.Label("Compare")
-                                    @Html.CheckBox("Compare", false)
-
-
-                                </div>
-                                <div class="col">
-                                    <button class="btn btn-primary">Add to</button>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        </div>
-                        <div class="card-footer">
+                        <div class="card">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer">
 
-                            <div class="row">
-                                <div class="col">
-                                    @Html.Label("Compare")
-                                    @Html.CheckBox("Compare", false)
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.Label("Compare")
+                                        @Html.CheckBox("Compare", false)
 
 
-                                </div>
-                                <div class="col">
-                                    <button class="btn btn-primary">Add to</button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-primary">Add to</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="card">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            </div>
+                            <div class="card-footer">
+
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.Label("Compare")
+                                        @Html.CheckBox("Compare", false)
+
+
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-primary">Add to</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+
                 </div>
-
-
-            </div>
         </div>
     </div>
+
 
 
 

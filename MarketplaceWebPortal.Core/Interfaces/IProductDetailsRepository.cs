@@ -9,6 +9,6 @@ namespace MarketplaceWebPortal.Core.Interfaces
     {
         ProductDetailUI getProductDetail(int productID);
 
-        List<ProductDetailUI> searchProduct(string subcategoryName);
+        List<ProductDetailUI> searchProduct(string categoryName,string subcategoryName);
     }
 }

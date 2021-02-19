@@ -17,6 +17,7 @@
 	[Accessories]  INT  NULL,
 	[ProductID] INT NOT NULL, 
     [SubCategoryID] INT NOT NULL, 
+    [Fan_Sweep_Diameter] INT NOT NULL,
     PRIMARY KEY CLUSTERED ([PropertyID] ASC), 
 	 CONSTRAINT [FK_dbo.Property_dbo.Application_ApplicationID] FOREIGN KEY ([ApplicationID]) 
 	 REFERENCES [dbo].[Application] ([ApplicationID]) ON DELETE CASCADE, 

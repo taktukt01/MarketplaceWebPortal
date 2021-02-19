@@ -16,7 +16,7 @@ namespace MarketplaceWebPortal.EntityLayer.Entities
     public partial class MarketplaceWebPortalEntities : DbContext
     {
         public MarketplaceWebPortalEntities()
-            : base("MarketplaceWebPortalEntities")
+            : base("name=MarketplaceWebPortalEntities")
         {
         }
     

@@ -31,11 +31,11 @@ namespace MarketplaceWebPortal.UI.Controllers
             //get URL request parameter value
             var subcategoryName =Request.QueryString["subcategory"];
             //what does this return? --> List<ProductUI>
-           //List<ProductDetailUI> list = _productRepository.SearchProduct(subcategoryName);
+            //List<ProductDetailUI> list = _productRepository.SearchProduct(subcategoryName);
+           List<ProductDetailUI> ListProducts = _productRepository.searchProduct("Electrical","Fan");
 
 
-
-            return View();
+            return View(ListProducts);
 
         }
     }

@@ -62,23 +62,27 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
          *  output: 3 Products that match the subcategory name, with additional details on the products.
          * 
          */
-        public List<ProductDetailUI> searchProduct(string subcategoryName)
+        public List<ProductDetailUI> searchProduct(string categoryname , string subcategoryName)
         {
                 List<ProductDetailUI> products = new List<ProductDetailUI>();
 
-                //grab subcategory ID that matches subcategoryName
-                // what doe sthis return?
-                var subcats = context.SubCategories.Where(sub => sub.SubCategoryName == subcategoryName)
-                                                   .ToList();   
-            
+            //grab subcategory ID that matches subcategoryName
+
+            var x = context.Categories.ToList();            // returns 0 
+
+           //grab all subcategories with name = SubcategoryName
+
+            var subcats = (context.SubCategories.Where(sub => sub.SubCategoryName == subcategoryName)).ToList();
 
 
-                if (subcats.Count == 0)
-                {
+
+
+            if (subcats.Count == 0)
+            {
                 List<ProductDetailUI> poo = new List<ProductDetailUI>();
-                return  poo;
-                    //no subcategory found
-                }//if Subcategory exists in DB then return its CategoryID
+                return poo;
+                //no subcategory found
+            }//if Subcategory exists in DB then return its CategoryID
             int SubCategoryID = subcats[0].SubCategoryID;
             int CategoryID = (int)(subcats[0].CategoryID);
 
@@ -122,6 +126,8 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                 decimal min_height = application.height_min;
                 int max_height =(int) application.height_max;
                 int weight = (int)application.weight;
+                string productUrl = product.ProductImgUrl;
+                ////string mountingLoc = 
 
                 ProductDetailUI productDetail = new ProductDetailUI
                 {
@@ -139,14 +145,20 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                     number_of_fan_speed = numFans,
                     sound_at_max_speed = soundAtMaxSpeed,
                     //fan sweep diameter missing
-                    height_min = (float) min_height,
+                    height_min = (float)min_height,
                     height_max = max_height,
-                    weight = weight
-                    
+                    weight = weight,
+                    ProductURL = productUrl,
+                    MountingLocation = "blah",
+                    Accessories="With Lights",
+                    CategoryName = CategoryName,
+                    SubCategoryName = subcategoryName,
+                    Application="Blah",
+
 
                 };
 
-                products.Append(productDetail);
+                products.Add(productDetail);
             }
 
             // what do I need to grab....
@@ -157,8 +169,6 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
 
                 // grab subCategoryID from Products entity List...
                 // get collection of Products that matches the subcategory name
-
-
 
 
 

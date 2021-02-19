@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MarketplaceWebPortal.Core.POCOClasses
@@ -8,8 +9,10 @@ namespace MarketplaceWebPortal.Core.POCOClasses
     {
 
 
+        [Key]
         public int ProductID { get; set; }
         //model
+        public string ProductURL { get; set; }
         public string model_name { get; set; }
         public int model_year { get; set; }
         //series
@@ -20,8 +23,11 @@ namespace MarketplaceWebPortal.Core.POCOClasses
         //property
 
         //Category, SubCategory
+        [Key]
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
+
+        public string SubCategoryName { get; set; }
 
 
         //property-application
