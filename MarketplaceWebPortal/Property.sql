@@ -15,12 +15,8 @@
     [height_max] DECIMAL NOT NULL DEFAULT 999,
     [weight] DECIMAL NOT NULL DEFAULT 1,
 	[Accessories]  INT  NULL,
-	[ProductID] INT NOT NULL, 
-    [SubCategoryID] INT NOT NULL, 
     [Fan_Sweep_Diameter] INT NOT NULL,
     PRIMARY KEY CLUSTERED ([PropertyID] ASC), 
 	 CONSTRAINT [FK_dbo.Property_dbo.Application_ApplicationID] FOREIGN KEY ([ApplicationID]) 
 	 REFERENCES [dbo].[Application] ([ApplicationID]) ON DELETE CASCADE, 
-    CONSTRAINT [FK_dbo.Property_dbo.Product_ProductID] FOREIGN KEY ([ProductID]) REFERENCES [Product]([ProductID]), 
-    CONSTRAINT [FK_dbo.Property_dbo.Subcategory_SubcategoryID] FOREIGN KEY ([SubcategoryID]) REFERENCES [SubCategory]([SubcategoryID])
 )
