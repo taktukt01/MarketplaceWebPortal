@@ -161,6 +161,10 @@
       <Project>{fd9998dc-b405-4462-8fea-569a6b898f01}</Project>
       <Name>MarketplaceWebPortal.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MarketplaceWebPortal\MarketplaceWebPortal.sqlproj">
+      <Project>{5007701f-634b-4430-af38-323d728680a9}</Project>
+      <Name>MarketplaceWebPortal</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />

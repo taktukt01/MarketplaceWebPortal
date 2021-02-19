@@ -13,6 +13,15 @@ namespace MarketplaceWebPortal.UI.Controllers
 {
     public class UserController : Controller
     {
+        SqlConnection con = new SqlConnection();
+        SqlCommand com = new SqlCommand();
+        SqlDataReader dr;
+
+        void connectionString()
+        {
+            con.ConnectionString = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=MarketplaceWebPortal;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+        }
+
         // GET: User
         public ActionResult Index()
         {
@@ -21,26 +30,27 @@ namespace MarketplaceWebPortal.UI.Controllers
         [HttpPost]
         public ActionResult Index(UserUI userUI, HttpPostedFileBase file)
         {
-            string mainconn = ConfigurationManager.ConnectionStrings["MarketplaceWebPortalEntities"].ConnectionString;
-            SqlConnection sqlconn = new SqlConnection(mainconn);
-            string sqlquery = "insert into [dbo].[User] (UserName,Password,Email,ImgUrl) values (@UserName,@Password,@Email,@ImgUrl)";
-            SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
-            sqlconn.Open();
-            sqlcomm.Parameters.AddWithValue("@UserName", userUI.UserName);
-            sqlcomm.Parameters.AddWithValue("@Password", userUI.Password);
-            sqlcomm.Parameters.AddWithValue("@Email", userUI.Email);
+            connectionString();
+            con.Open();
+            com.Connection = con;
+            com.CommandText = "insert into [dbo].[User] (UserName,Password,Email,ImgUrl) values (@UserName,@Password,@Email,@ImgUrl)";
+
+            com.Parameters.AddWithValue("@UserName", userUI.UserName);
+            com.Parameters.AddWithValue("@Password", userUI.Password);
+            com.Parameters.AddWithValue("@Email", userUI.Email);
 
             if (file != null && file.ContentLength > 0)
             {
                 string filename = Path.GetFileName(file.FileName);
-                string imgpath = Path.Combine(Server.MapPath("~/UserImages/"), filename);
+                string imgpath = Path.Combine(Server.MapPath("~/Profile/"), filename);
                 file.SaveAs(imgpath);
             }
-            sqlcomm.Parameters.AddWithValue("@ImgUrl", "~/UserImages/" + file.FileName);
-            sqlcomm.ExecuteNonQuery();
-            sqlconn.Close();
+            com.Parameters.AddWithValue("@ImgUrl", "~/Profile/" + file.FileName);
+            com.ExecuteNonQuery();
+            con.Close();
+            //sqlconn.Close();
             ViewData["Message"] = "User Record " + userUI.UserName + " Is Saved Successfully !";
-            return View("");
+            return Redirect("/Login");
         }
     }
 }

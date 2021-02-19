@@ -251,6 +251,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Profile\" />
     <Folder Include="UserImages\" />
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +275,10 @@
     <ProjectReference Include="..\MarketplaceWebPortal.EntityLayer\MarketplaceWebPortal.EntityLayer.csproj">
       <Project>{8184c8f1-1b45-457a-bd3d-c6aefb1bd1f9}</Project>
       <Name>MarketplaceWebPortal.EntityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarketplaceWebPortal\MarketplaceWebPortal.sqlproj">
+      <Project>{5007701f-634b-4430-af38-323d728680a9}</Project>
+      <Name>MarketplaceWebPortal</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

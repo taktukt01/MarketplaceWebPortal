@@ -32,12 +32,12 @@ namespace MarketplaceWebPortal.UI.Controllers
             connectionString();
             con.Open();
             com.Connection = con;
-            com.CommandText = "select * from tblUserLogin where UserID='" + userUI.UserName + "' and Password='" + userUI.Password + "'";
+            com.CommandText = "select UserName, Password from [User] where UserName='" + userUI.UserName + "' and Password='" + userUI.Password + "'";
             dr = com.ExecuteReader();
             if (dr.Read())
             {
                 con.Close();
-                return View("../Home/Index");
+                return View("../Selection/ShowSelection");
             }
             else
             {
