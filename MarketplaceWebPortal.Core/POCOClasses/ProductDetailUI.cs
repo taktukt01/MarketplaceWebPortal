@@ -39,8 +39,8 @@ namespace MarketplaceWebPortal.Core.POCOClasses
         
         //technical specifications
         public int air_flow { get; set; }
-        public float power_min { get; set; }
-        public float power_max { get; set; }
+        public decimal power_min { get; set; }
+        public decimal power_max { get; set; }
         public int operating_voltage_min { get; set; }
         public int operating_voltage_max { get; set; }
         public int fan_speed_min { get; set; }
@@ -49,9 +49,9 @@ namespace MarketplaceWebPortal.Core.POCOClasses
         public int sound_at_max_speed { get; set; }
 
         public float fan_sweep_diameter { get; set; }
-        public float height_min { get; set; }
-        public float height_max { get; set; }
-        public float weight { get; set; }
+        public decimal height_min { get; set; }
+        public decimal height_max { get; set; }
+        public decimal weight { get; set; }
 
         
         public string Accessories { get; set; }

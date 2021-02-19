@@ -65,7 +65,6 @@
     <Build Include="Models.sql" />
     <Build Include="Orders.sql" />
     <Build Include="Product.sql" />
-    <Build Include="ProductProperty.sql" />
     <Build Include="Property.sql" />
     <Build Include="Series.sql" />
     <Build Include="SeriesModels.sql" />

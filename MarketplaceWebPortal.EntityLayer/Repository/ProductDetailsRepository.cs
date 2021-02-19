@@ -21,15 +21,15 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
        
         public ProductDetailUI getProductDetail(int productID)
         {
-
+            MarketplaceWebPortalEntities db = context;
             var product = from pRecord in db.Products
                           where pRecord.ProductID == productID
                           join moRecord in db.Models
                           on pRecord.ModelID equals moRecord.Model_id
                           join maRecord in db.Manufactures
                           on pRecord.ManufactureID equals maRecord.ManufactureID
-                          join sRecord in db.Series
-                          on pRecord.SeriesID equals sRecord.SeriesID
+                          //join sRecord in db.Series
+                          //on pRecord.SeriesID equals sRecord.SeriesID
                           join subRecord in db.SubCategories
                           on pRecord.SubCategoryID equals subRecord.SubCategoryID
                           join proRecord in db.Properties
@@ -42,9 +42,9 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                               CategoryName = "Electrical",
                               model_name = moRecord.model_name,
                               model_year = moRecord.model_year,
-                              series_name = sRecord.SeriesName,
+                              series_name = "Same Series",//sRecord.SeriesName,
                               ManufactureName = maRecord.ManufactureName,
-                              Application = appRecord.ApplicationName,
+                              Application = appRecord.MountingLocation,
                               use_type="Commercial",
                               MountingLocation=appRecord.MountingLocation,
                               air_flow=proRecord.air_flow,
@@ -59,12 +59,12 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                               height_min=proRecord.height_min,
                               height_max=proRecord.height_max,
                               weight=proRecord.weight,
-                              Accessories=proRecord.Accessories
+                              Accessories="No Accessories"
                           };
+            List<ProductDetailUI> oList = product.ToList();
             List<ProductDetailUI> rList = new List<ProductDetailUI>();
             ProductDetailUI nUI=new ProductDetailUI();
-            nUI.air_flow = 55000;
-            foreach (ProductDetailUI item in product)
+            foreach (ProductDetailUI item in oList)
             {
                 Debug.WriteLine(item.CategoryName);
                 Debug.WriteLine(item.ProductID);
@@ -156,8 +156,8 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                     model_name = model_name,
                     series_name = series_name,
                     air_flow = airflow,
-                    power_min = (float)min_power,
-                    power_max = (float)max_power,
+                    power_min = min_power,
+                    power_max = max_power,
                     operating_voltage_min = operating_volt_min,
                     operating_voltage_max = operating_volt_max,
                     fan_speed_min = fan_speed_min,
@@ -165,7 +165,7 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                     number_of_fan_speed = numFans,
                     sound_at_max_speed = soundAtMaxSpeed,
                     //fan sweep diameter missing
-                    height_min = (float)min_height,
+                    height_min = min_height,
                     height_max = max_height,
                     weight = weight,
                     ProductURL = productUrl,
