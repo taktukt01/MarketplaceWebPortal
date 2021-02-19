@@ -15,7 +15,7 @@ namespace MarketplaceWebPortal.Controllers
         [HttpPost]
         public ActionResult Details(string selectedtText, string Category)
         {
-            return View("Selection");
+            return RedirectToAction("Summary", "Product");
         }
     }
 }

@@ -54,7 +54,7 @@
 
                 } else if (text == "Electrical") {
                     $("#products").empty();
-                    $("#products").append("<option value='Toasters'>Toasters</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
+                    $("#products").append("<option value='Toasters'>Toasters</option><option value='Fans'>Fans</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
 
                 } else if (text == "Stationary") {
                     $("#products").empty();
@@ -85,7 +85,7 @@
                         'Category': text1
                     },
                     success: function (result) {
-                        alert("Selected value: " + select);
+                        console.log("Helloi World")
                     }
                 });
                 return false;
@@ -97,7 +97,7 @@
     <br><br><br><br><br><br><br><br>
 
     <div style="text-align:center">
-        <img src="~/Image/logo.png" alt="Logo">
+        <img src="~/Img/Joole_250x150.png" alt="Logo">
     </div>
 
     <br>
@@ -128,7 +128,7 @@
                     <option value=""></option>
                     <option value=""></option>
                 </select>
-                <button style="background-color:steelblue; border-color:steelblue" type="button" class="btn btn-info">
+                <button style="background-color:steelblue; border-color:steelblue" type="submit" class="btn btn-info">
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
             </div>
