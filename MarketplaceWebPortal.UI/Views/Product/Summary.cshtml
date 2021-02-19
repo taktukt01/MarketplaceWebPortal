@@ -343,31 +343,68 @@
 
     @* JQuery for the slider *@
     <script>
-        //grab airflow value for each card available?
-        $('#airflow').on('change', function () {
-            //value for airlfow
-            var currentVal = $(this).val();
-            var cards = $(".card");
-            var cardbody = $(cards).children().eq(1);
+
+        $(document).ready(function () {
+            
+            $(".dropdown-menu").find("li a").click(function (e) {
+                $('.selectedLi').removeClass('selectedLi');
+                $(this).addClass('selectedLi');
+                var text = $('.dropdown-menu').find("li a.selectedLi").text();
+                if (text == "Mechanical") {
+                    $("#products").empty();
+                    $("#products").append("<option value=''></option><option value=''></option><option value='Generators'>Generators</option>");
+
+                } else if (text == "Electrical") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Toasters'>Toasters</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
+
+                } else if (text == "Stationary") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Staplers'>Staplers</option><option value='Notepads'>Notepads</option><option value='Stamps'>Stamps</option>");
+
+                } else if (text == "Furniture") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Sofas'>Sofas</option><option value='Couches'>Couches</option><option value='Tables'>Tables</option>");
+
+                } else {
+                    $("#products").empty();
+                    $("#products").append("<option value='SelectCate'>Select Category First</option>");
+                }
+                e.preventDefault();
+            });
 
 
-            //val : 5000 RPM
 
-            var airflowVal = cardbody.children(".airflowValue")[0].textContent.split("\n")[1];
-            console.log(airflowVal)
-            //for (const cards in card) {
-            //    //var cardbody = $(cards).children().eq(1);
-            //    console.log(cards);
-            //}
-            console.log(currentVal)
 
-            if (currentVal == 5) {
-                cards.show();
-            } else {
-                cards.hide();
-            }
+
+            //grab airflow value for each card available?
+            $('#airflow').on('change', function () {
+                //value for airlfow
+                var currentVal = $(this).val();
+                var cards = $(".card");
+                var cardbody = $(cards).children().eq(1);
+
+
+                //val : 5000 RPM
+
+                var airflowVal = cardbody.children(".airflowValue")[0].textContent.split("\n")[1];
+                console.log(airflowVal)
+                //for (const cards in card) {
+                //    //var cardbody = $(cards).children().eq(1);
+                //    console.log(cards);
+                //}
+                console.log(currentVal)
+
+                if (currentVal == 5) {
+                    cards.show();
+                } else {
+                    cards.hide();
+                }
+
+            });
 
         });
+       
 
 
 
