@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[SubCategory]
 (
-	[SubCategoryID] INT IDENTITY (1,1) NOT NULL,
+	[SubCategoryID] INT  NOT NULL,
 	[CategoryID] INT NULL,
 	[SubCategoryName] NVARCHAR (50) NULL,
 	PRIMARY KEY CLUSTERED ([SubCategoryID] ASC),

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TechSpecFilter]
 (
-    [TechSpecID]  INT IDENTITY (1,1) NOT NULL,
+    [TechSpecID]  INT  NOT NULL,
 	[PropertyID] INT NULL, 
 	[SubCategoryID] INT NULL, 
 	[MaxVal]  INT NULL,

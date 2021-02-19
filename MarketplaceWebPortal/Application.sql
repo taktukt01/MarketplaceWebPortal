@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Application]
 (
-    [ApplicationID]  INT IDENTITY (1,1) NOT NULL,
-	[ApplicationInOrOut] INT NULL,
+    [ApplicationID]  INT  NOT NULL,
+	[ApplicationName] NVARCHAR(50) NULL,
 	[MountingLocation]  NVARCHAR(50)  NULL,
 	PRIMARY KEY CLUSTERED ([ApplicationID] ASC)
 )

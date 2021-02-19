@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Shipments]
 (
-	[ShipmentID] INT IDENTITY (1,1) NOT NULL,
+	[ShipmentID] INT  NOT NULL,
 	[OrderID] INT NOT NULL,
 	[ShipmentDate] DATE NOT NULL,
 	PRIMARY KEY CLUSTERED ([ShipmentID] ASC),
