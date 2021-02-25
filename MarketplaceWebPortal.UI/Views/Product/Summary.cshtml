@@ -93,7 +93,7 @@
 
                     </div>
                     <div class="col-3 ">
-                        <button class="btn btn-info squared">Clear</button>
+                        <button id="clearBtn" class="btn btn-info squared">Clear</button>
 
                     </div>
 
@@ -421,6 +421,13 @@
 
         <script>
 
+            $("#clearBtn").on("click", function () {
+                //reset all filters
+                $("input[type=range]").val(0);
+
+                $(".card").show();
+            })
+
             $("#saveBtn").on("click", function () {
 
                     //check start model year
@@ -443,8 +450,6 @@
                         $(cards[i]).hide();
                     }
                 }
-
-
 
             });
 
@@ -620,40 +625,6 @@
 
                     }
                 });
-
-
-
-                ////grab airflow value for each card available?
-                //$('#airflow').on('change', function () {
-                //    //value for airlfow
-                //    var currentVal = $(this).val();
-                //    //GRAB EACH CARD
-                //    var cards = $(".card");
-                //    var cardbody = $(cards).children();
-
-                //    $("airflowLbl").val(currentVal);
-                //    $('#airflowFilter').html(currentVal)
-
-
-                //    // grab airflow val for each card body
-                //    var airflowVal = cardbody.children(".airflowValue");
-
-                //    //removing all whitespace
-                //    //airflowVal = airflowVal.replace('/ /g', '')
-
-                //    //for (const cards in card) {
-                //    //    //var cardbody = $(cards).children().eq(1);
-                //    //    console.log(cards);
-                //    //}
-
-                //    if (currentVal == airflowVal) {
-                //        cards.show();
-                //    } else {
-                //        cards.hide();
-                //    }
-
-                //});
-
 
 
                 });
