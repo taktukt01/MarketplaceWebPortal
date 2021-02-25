@@ -48,17 +48,17 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                               use_type="Commercial",
                               MountingLocation=appRecord.MountingLocation,
                               air_flow=proRecord.air_flow,
-                              power_min=proRecord.power_min,
-                              power_max=proRecord.power_max,
+                              power_min=(double) proRecord.power_min,
+                              power_max=(double)proRecord.power_max,
                               operating_voltage_min=proRecord.operating_voltage_min,
                               operating_voltage_max=proRecord.operating_voltage_max,
                               fan_speed_min=proRecord.fan_speed_min,
                               fan_speed_max=proRecord.fan_speed_max,
                               number_of_fan_speed=proRecord.number_of_fan_speed,
                               fan_sweep_diameter=60,
-                              height_min=proRecord.height_min,
-                              height_max=proRecord.height_max,
-                              weight=proRecord.weight,
+                              height_min=(double)proRecord.height_min,
+                              height_max=(double)proRecord.height_max,
+                              weight=(double)proRecord.weight,
                               Accessories="No Accessories"
                           };
             List<ProductDetailUI> oList = product.ToList();
@@ -84,37 +84,34 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
          */
         public List<ProductDetailUI> searchProduct(string categoryname , string subcategoryName)
         {
+
+                context.SubCategories.Remove(context.SubCategories.First(s => subcategoryName == "Fan"));
                 List<ProductDetailUI> products = new List<ProductDetailUI>();
 
-            //grab subcategory ID that matches subcategoryName
 
-            var x = context.Categories.ToList();            // returns 0 
+            //grab all subcategories with name = SubcategoryName
 
-           //grab all subcategories with name = SubcategoryName
+            var subcats = (context.SubCategories.Where(sub => sub.SubCategoryName == subcategoryName).ToList());
 
-            var subcats = (context.SubCategories.Where(sub => sub.SubCategoryName == subcategoryName)).ToList();
-
-
-
-
-            if (subcats.Count == 0)
-            {
-                List<ProductDetailUI> poo = new List<ProductDetailUI>();
-                return poo;
-                //no subcategory found
-            }//if Subcategory exists in DB then return its CategoryID
+          
+            
+            //if Subcategory exists in DB then return its CategoryID
             int SubCategoryID = subcats[0].SubCategoryID;
-            int CategoryID = (int)(subcats[0].CategoryID);
+            //int CategoryID = (int)(subcats[0].CategoryID);
 
+            //kind of unneccessary, but just a check
+            //string CategoryName = context.Categories.Where(cat => cat.sub == CategoryID).First().CategoryName;
 
-            string CategoryName = context.Categories.Where(cat => cat.CategoryID == CategoryID).First().CategoryName;
+            //grab all the products with FK subcategory ID matching ours
             var productsList = context.Products.Where(p => p.SubCategoryID == SubCategoryID).ToList();
 
 
             /*
              *  for each product that matches the SubCategoryID, let's create a ProductDetail model 
              */
-            foreach(var product in productsList)
+            int i = 0;
+
+            foreach (var product in productsList)
             {
                 int productId = product.ProductID;
 
@@ -135,18 +132,27 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
 
                 var application = context.Properties.Where(c => c.ProductID == productId).First();
                 int airflow = application.air_flow;
+
                 decimal min_power = application.power_min;
                 decimal max_power = application.power_max;
+
+
                 int operating_volt_min = application.operating_voltage_min;
                 int operating_volt_max = application.operating_voltage_max;
+
+
                 int fan_speed_min = application.fan_speed_min;
                 int fan_speed_max = application.fan_speed_max;
+
                 int numFans = application.number_of_fan_speed;
                 int soundAtMaxSpeed = application.sound_at_max_speed;
                 decimal min_height = application.height_min;
                 int max_height =(int) application.height_max;
                 int weight = (int)application.weight;
                 string productUrl = product.ProductImgUrl;
+                float fan_sweep_diameter = i;
+
+                i++;
                 ////string mountingLoc = 
 
                 ProductDetailUI productDetail = new ProductDetailUI
@@ -156,8 +162,8 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                     model_name = model_name,
                     series_name = series_name,
                     air_flow = airflow,
-                    power_min = min_power,
-                    power_max = max_power,
+                    power_min = (double)min_power,
+                    power_max =(double) max_power,
                     operating_voltage_min = operating_volt_min,
                     operating_voltage_max = operating_volt_max,
                     fan_speed_min = fan_speed_min,
@@ -165,33 +171,21 @@ namespace MarketplaceWebPortal.EntityLayer.Repository
                     number_of_fan_speed = numFans,
                     sound_at_max_speed = soundAtMaxSpeed,
                     //fan sweep diameter missing
-                    height_min = min_height,
-                    height_max = max_height,
-                    weight = weight,
+                    height_min =(double) min_height,
+                    height_max = (double)max_height,
+                    weight = (double) weight,
                     ProductURL = productUrl,
                     MountingLocation = "blah",
-                    Accessories="With Lights",
-                    CategoryName = CategoryName,
+                    Accessories = "With Lights",
+                    CategoryName = categoryname,
                     SubCategoryName = subcategoryName,
                     Application="Blah",
-
-
+                    ProductID = productId,
+                    fan_sweep_diameter = fan_sweep_diameter,
                 };
 
                 products.Add(productDetail);
             }
-
-            // what do I need to grab....
-            // let's start with Property for each Product
-
-                //context.Categories.Select("")
-                //context.SubCategories.Find()
-
-                // grab subCategoryID from Products entity List...
-                // get collection of Products that matches the subcategory name
-
-
-
 
                 return products;
                 // we will reutnr all the Product Result , however in Controller only grab 3.

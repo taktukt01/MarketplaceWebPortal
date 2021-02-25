@@ -1,98 +1,87 @@
 ﻿
 @model List<MarketplaceWebPortal.Core.POCOClasses.ProductDetailUI>
-@{
-    ViewBag.Title = "Summary";
-    Layout = null;
 
-}
 
 
 
 <head>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/Content/ProductSummary.css" />
-
-
 </head>
 
 
 
-<body>
-    <style>
-        .card-img-top {
-            width: 100%;
-            height: 15rem;
-            object-fit: cover;
-        }
-    </style>
+    <body >
+      
+
+
+        <nav id="grad1">
+
+
+            <div class="d-flex justify-content-between">
+                <div class="p-2 bd-highlight">
+
+                    <img src="~/Img/Joole_250x150.png" class="img-responsive" />
+
+                </div>
+                <div class="p-2 bd-highlight">
+
+                    <form action="/Selection/Details" method="post" id="myForm">
+
+                        <div class="dropdown">
+                            <button style="color:black" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                Category
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Mechanical</a></li>
+                                <li><a href="">Electrical</a></li>
+                                <li><a href="">Stationary</a></li>
+                                <li><a href="">Furniture</a></li>
+                            </ul>
+                            <select id="products" name="products">
+                                <option value="" disabled selected hidden>Search...</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                            <button class="btn btn-info">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="p-2 bd-highlight">
+
+                    @*<img src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=100" class="img-thumbnail rounded" />*@
 
 
 
-    <nav id="grad1">
-
-
-        <div class="d-flex justify-content-between">
-            <div class="p-2 bd-highlight">
-
-                <img src="~/Img/Joole_250x150.png" class="img-responsive" />
-
+                </div>
             </div>
-            <div class="p-2 bd-highlight">
-
-                <form action="/Selection/Details" method="post" id="myForm">
-
-                    <div class="dropdown">
-                        <button style="color:black" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            Category
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="">Mechanical</a></li>
-                            <li><a href="">Electrical</a></li>
-                            <li><a href="">Stationary</a></li>
-                            <li><a href="">Furniture</a></li>
-                        </ul>
-                        <select id="products" name="products">
-                            <option value="" disabled selected hidden>Search...</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                        <button class="btn btn-info">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
-                </form>
-
-            </div>
-
-            <div class="p-2 bd-highlight">
-
-                @*<img src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=100" class="img-thumbnail rounded" />*@
-
-
-
-            </div>
-        </div>
-    </nav>
+        </nav>
 
 
 
 
 
-    @* make flex container in the future..? *@
+        @* make flex container in the future..? *@
 
-<div class="container">
+    <div class="container-fluid" style="padding-left: 0; padding-right: 0">
 
-    <div class="row">
-        <div class="col-4 border mt-5">
-            @*  Criteria *@
 
-            @using (Html.BeginForm("Product", "Summary", FormMethod.Post))
-            {
+        <div class="row justify-content-start">
 
+            <!-- row -->
+            <div class="col-3 border mt-5">
+                @*  Criteria *@
+
+                @*@using (Html.BeginForm("Product", "Summary", FormMethod.Post))
+                {*@
                 <div class="row justify-content-start">
 
                     <div class="col-2">
@@ -100,7 +89,7 @@
 
                     </div>
                     <div class="col-3 offset-4">
-                        <button class="btn btn-info squared">Save</button>
+                        <button class="btn btn-info squared" id="saveBtn">Save</button>
 
                     </div>
                     <div class="col-3 ">
@@ -109,172 +98,246 @@
                     </div>
 
                 </div>
+
+                @* Product,Project *@
                 <div class="row border ">
                     <p class="col-6 border">Product</p>
                     <p class="col-6 border">Project</p>
                 </div>
 
+
                 <div class="row border">
 
+                    <div class="accordion" id="accordionExample">
 
-
-
-                    @* create an accordian *@
-
-                    <div class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">
-
-
-                                    <p class="text-justify" data-toggle="collapse" href="#collapse1">Model Year: </p>
-
-                                </h5>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse">
-                                <div class="panel-body">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Model Year
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
 
 
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Start" />
+                                        <input type="text" class="form-control" id="modelStart" placeholder="Start" />
                                         <span class="input-group-addon">-</span>
-                                        <input type="text" class="form-control" placeholder="End" />
+                                        <input type="text" class="form-control" id="modelEnd" placeholder="End" />
                                     </div>
 
 
 
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Tech Specifications
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+
+
+
+                                    @* Airflow filter  *@
+                                    <div class="row">
+                                        <div class="col-3">
+
+                                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9Ijk4NC44NXB4IiBoZWlnaHQ9Ijk4NC44NXB4IiB2aWV3Qm94PSIwIDAgOTg0Ljg1IDk4NC44NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTg0Ljg1IDk4NC44NTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTY1Mi4wNzUsOTU0Ljc5MWMxMi4xMDEsMTIsMjguNywyMC4xLDQ1LjcsMjEuNWMxNy4yLDEuMzk5LDM0LjktMi44LDQ5LjItMTIuNWMzLjktMi42MDEsNy42LTUuNywxMC45LTlsMC4xLTAuMTAxDQoJCWwyMDQuOS0yMDQuODk5YzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMTAxYy0yOS4zMDEtMjkuMy03Ni44MDEtMjkuMy0xMDYuMTAxLDBsLTc2Ljg5OSw3Ni45di02MzdjMC00MS40LTMzLjYwMS03NS03NS03NQ0KCQljLTQxLjQsMC03NSwzMy42LTc1LDc1djYzN2wtNzguOS03OC45Yy0yOS4zLTI5LjMtNzYuOC0yOS4zLTEwNi4xLDBjLTI5LjMwMSwyOS4zMDEtMjkuMzAxLDc2LjgwMSwwLDEwNi4xMDFsMjA3LDIwNw0KCQlDNjUxLjk3NSw5NTQuNjksNjUxLjk3NSw5NTQuNzkxLDY1Mi4wNzUsOTU0Ljc5MXoiLz4NCgk8cGF0aCBkPSJNNzQuOTc1LDM2NS40OTFjMTkuMiwwLDM4LjQtNy4zLDUzLTIybDc4LjktNzguOXY2MzdjMCw0MS40LDMzLjYsNzUsNzUsNzVzNzUtMzMuNiw3NS03NXYtNjM3bDc2Ljg5OSw3Ni45DQoJCWMxNC42MDEsMTQuNiwzMy44LDIyLDUzLDIyczM4LjQtNy4zLDUzLTIyYzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMWMtNS4zOTktNS40LTEwLjg5OS0xMC45LTE2LjMtMTYuMw0KCQljLTEzLjMtMTMuMy0yNi41LTI2LjctMzkuOS0zOS45Yy0xNy4xOTktMTcuMS0zNC4zLTM0LjItNTEuMzk5LTUxLjRjLTE2LjgtMTctMzQuMi0zMy41LTUwLjktNTAuNw0KCQljLTE2LjItMTYuNi0zMi42LTMyLjktNDkuODk5LTQ4LjVjLTE4LTE2LjItNDEuNS0yNC4yLTY1LjctMTguNWMtNi4yLDEuNC0xMi44LDMuOC0xOC40LDYuOWMtMTYuNyw5LjQtMzAsMjQuOS00My41LDM4LjMNCgkJYy0xNi41LDE2LjMtMzIuNywzMi45LTQ5LjEsNDkuNGMtMTkuNSwxOS42LTM5LjIsMzkuMS01OC44LDU4LjZjLTE2LjQsMTYuNi0zMywzMy4yLTQ5LjUsNDkuOGMtOCw4LTE2LDE1LjktMjQsMjMuOQ0KCQljLTAuMSwwLjEtMC4zLDAuMy0wLjQsMC40Yy0yOS4zLDI5LjMtMjkuMyw3Ni44LDAsMTA2LjFDMzYuNTc1LDM1OC4xOTEsNTUuNzc1LDM2NS40OTEsNzQuOTc1LDM2NS40OTF6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg=="
+                                                 style="        padding: .25rem;
+                                             max-width: 40px;
+                                              height: 50px;
+                                             " />
+
+                                        </div>
+
+                                        <div class="col-9">
+                                            <p>
+                                                Airflow (CFM)
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+
+
+
+                                        <div class="col">
+                                            <label class="form-label">0</label>
+                                        </div>
+                                        <div class="col">
+
+                                            @* get the highest CFM among products *@
+                                            <input type="range" class="form-range" min="0"  max=@Model.Max(t => t.air_flow) step="1000" id="airflow">
+
+
+                                        </div>
+
+                                        <div class="col">
+                                            <label class="form-label">@Model.Max(t => t.air_flow)</label>
+                                        </div>
+
+                                        <br />
+                                        <p id="airflowLbl" class="text-center text-danger">0</p>
+
+                                    </div>
+
+                                    @* -------------------------------------------- *@
+
+
+
+                                    @* Max Power Filter *@
+                                    <div class="row">
+                                        <div class="col-3">
+
+                                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9Ijk4NC44NXB4IiBoZWlnaHQ9Ijk4NC44NXB4IiB2aWV3Qm94PSIwIDAgOTg0Ljg1IDk4NC44NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTg0Ljg1IDk4NC44NTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTY1Mi4wNzUsOTU0Ljc5MWMxMi4xMDEsMTIsMjguNywyMC4xLDQ1LjcsMjEuNWMxNy4yLDEuMzk5LDM0LjktMi44LDQ5LjItMTIuNWMzLjktMi42MDEsNy42LTUuNywxMC45LTlsMC4xLTAuMTAxDQoJCWwyMDQuOS0yMDQuODk5YzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMTAxYy0yOS4zMDEtMjkuMy03Ni44MDEtMjkuMy0xMDYuMTAxLDBsLTc2Ljg5OSw3Ni45di02MzdjMC00MS40LTMzLjYwMS03NS03NS03NQ0KCQljLTQxLjQsMC03NSwzMy42LTc1LDc1djYzN2wtNzguOS03OC45Yy0yOS4zLTI5LjMtNzYuOC0yOS4zLTEwNi4xLDBjLTI5LjMwMSwyOS4zMDEtMjkuMzAxLDc2LjgwMSwwLDEwNi4xMDFsMjA3LDIwNw0KCQlDNjUxLjk3NSw5NTQuNjksNjUxLjk3NSw5NTQuNzkxLDY1Mi4wNzUsOTU0Ljc5MXoiLz4NCgk8cGF0aCBkPSJNNzQuOTc1LDM2NS40OTFjMTkuMiwwLDM4LjQtNy4zLDUzLTIybDc4LjktNzguOXY2MzdjMCw0MS40LDMzLjYsNzUsNzUsNzVzNzUtMzMuNiw3NS03NXYtNjM3bDc2Ljg5OSw3Ni45DQoJCWMxNC42MDEsMTQuNiwzMy44LDIyLDUzLDIyczM4LjQtNy4zLDUzLTIyYzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMWMtNS4zOTktNS40LTEwLjg5OS0xMC45LTE2LjMtMTYuMw0KCQljLTEzLjMtMTMuMy0yNi41LTI2LjctMzkuOS0zOS45Yy0xNy4xOTktMTcuMS0zNC4zLTM0LjItNTEuMzk5LTUxLjRjLTE2LjgtMTctMzQuMi0zMy41LTUwLjktNTAuNw0KCQljLTE2LjItMTYuNi0zMi42LTMyLjktNDkuODk5LTQ4LjVjLTE4LTE2LjItNDEuNS0yNC4yLTY1LjctMTguNWMtNi4yLDEuNC0xMi44LDMuOC0xOC40LDYuOWMtMTYuNyw5LjQtMzAsMjQuOS00My41LDM4LjMNCgkJYy0xNi41LDE2LjMtMzIuNywzMi45LTQ5LjEsNDkuNGMtMTkuNSwxOS42LTM5LjIsMzkuMS01OC44LDU4LjZjLTE2LjQsMTYuNi0zMywzMy4yLTQ5LjUsNDkuOGMtOCw4LTE2LDE1LjktMjQsMjMuOQ0KCQljLTAuMSwwLjEtMC4zLDAuMy0wLjQsMC40Yy0yOS4zLDI5LjMtMjkuMyw3Ni44LDAsMTA2LjFDMzYuNTc1LDM1OC4xOTEsNTUuNzc1LDM2NS40OTEsNzQuOTc1LDM2NS40OTF6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg=="
+                                                 style="        padding: .25rem;
+                                             max-width: 40px;
+                                              height: 50px;
+                                             " />
+
+                                        </div>
+
+                                        <div class="col-9">
+                                            <p>
+                                                Max Power(W)
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label class="form-label">0</label>
+                                        </div>
+
+                                        <div class="col">
+                                            <input type="range" class="form-range" min="0" max=@Model.Max(t => t.power_max) step ="0.01"id="maxPower">
+
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label">@Model.Max(t => t.power_max)</label>
+                                        </div>
+
+                                    </div>
+                                    <p id="maxPowerLbl" class="text-center text-danger">0</p>
+
+                                    @* ------------------------------------ *@
+
+
+                                    @* SOund at max power filter *@
+                                    <div class="row">
+                                        <div class="col-3">
+
+                                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9Ijk4NC44NXB4IiBoZWlnaHQ9Ijk4NC44NXB4IiB2aWV3Qm94PSIwIDAgOTg0Ljg1IDk4NC44NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTg0Ljg1IDk4NC44NTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTY1Mi4wNzUsOTU0Ljc5MWMxMi4xMDEsMTIsMjguNywyMC4xLDQ1LjcsMjEuNWMxNy4yLDEuMzk5LDM0LjktMi44LDQ5LjItMTIuNWMzLjktMi42MDEsNy42LTUuNywxMC45LTlsMC4xLTAuMTAxDQoJCWwyMDQuOS0yMDQuODk5YzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMTAxYy0yOS4zMDEtMjkuMy03Ni44MDEtMjkuMy0xMDYuMTAxLDBsLTc2Ljg5OSw3Ni45di02MzdjMC00MS40LTMzLjYwMS03NS03NS03NQ0KCQljLTQxLjQsMC03NSwzMy42LTc1LDc1djYzN2wtNzguOS03OC45Yy0yOS4zLTI5LjMtNzYuOC0yOS4zLTEwNi4xLDBjLTI5LjMwMSwyOS4zMDEtMjkuMzAxLDc2LjgwMSwwLDEwNi4xMDFsMjA3LDIwNw0KCQlDNjUxLjk3NSw5NTQuNjksNjUxLjk3NSw5NTQuNzkxLDY1Mi4wNzUsOTU0Ljc5MXoiLz4NCgk8cGF0aCBkPSJNNzQuOTc1LDM2NS40OTFjMTkuMiwwLDM4LjQtNy4zLDUzLTIybDc4LjktNzguOXY2MzdjMCw0MS40LDMzLjYsNzUsNzUsNzVzNzUtMzMuNiw3NS03NXYtNjM3bDc2Ljg5OSw3Ni45DQoJCWMxNC42MDEsMTQuNiwzMy44LDIyLDUzLDIyczM4LjQtNy4zLDUzLTIyYzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMWMtNS4zOTktNS40LTEwLjg5OS0xMC45LTE2LjMtMTYuMw0KCQljLTEzLjMtMTMuMy0yNi41LTI2LjctMzkuOS0zOS45Yy0xNy4xOTktMTcuMS0zNC4zLTM0LjItNTEuMzk5LTUxLjRjLTE2LjgtMTctMzQuMi0zMy41LTUwLjktNTAuNw0KCQljLTE2LjItMTYuNi0zMi42LTMyLjktNDkuODk5LTQ4LjVjLTE4LTE2LjItNDEuNS0yNC4yLTY1LjctMTguNWMtNi4yLDEuNC0xMi44LDMuOC0xOC40LDYuOWMtMTYuNyw5LjQtMzAsMjQuOS00My41LDM4LjMNCgkJYy0xNi41LDE2LjMtMzIuNywzMi45LTQ5LjEsNDkuNGMtMTkuNSwxOS42LTM5LjIsMzkuMS01OC44LDU4LjZjLTE2LjQsMTYuNi0zMywzMy4yLTQ5LjUsNDkuOGMtOCw4LTE2LDE1LjktMjQsMjMuOQ0KCQljLTAuMSwwLjEtMC4zLDAuMy0wLjQsMC40Yy0yOS4zLDI5LjMtMjkuMyw3Ni44LDAsMTA2LjFDMzYuNTc1LDM1OC4xOTEsNTUuNzc1LDM2NS40OTEsNzQuOTc1LDM2NS40OTF6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg=="
+                                                 style="        padding: .25rem;
+                                             max-width: 40px;
+                                              height: 50px;
+                                             " />
+
+                                        </div>
+
+                                        <div class="col-9">
+                                            <p>
+                                                Sound at max power (dBA)
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label class="form-label">0</label>
+
+                                        </div>
+                                        <div class="col">
+                                            <input type="range" class="form-range" min="0" max=@Model.Max(t => t.sound_at_max_speed) id="soundMax">
+
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label">@Model.Max(t => t.sound_at_max_speed)</label>
+
+                                        </div>
+                                        <p id="soundAtMaxLbl" class="text-center text-danger">0</p>
+
+                                    </div>
+
+                                    @* ---------------------------------------- *@
+                                    @* Fan Sweep diameter filter *@
+
+                                    <div class="row">
+                                        <div class="col-3">
+
+                                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9Ijk4NC44NXB4IiBoZWlnaHQ9Ijk4NC44NXB4IiB2aWV3Qm94PSIwIDAgOTg0Ljg1IDk4NC44NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTg0Ljg1IDk4NC44NTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTY1Mi4wNzUsOTU0Ljc5MWMxMi4xMDEsMTIsMjguNywyMC4xLDQ1LjcsMjEuNWMxNy4yLDEuMzk5LDM0LjktMi44LDQ5LjItMTIuNWMzLjktMi42MDEsNy42LTUuNywxMC45LTlsMC4xLTAuMTAxDQoJCWwyMDQuOS0yMDQuODk5YzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMTAxYy0yOS4zMDEtMjkuMy03Ni44MDEtMjkuMy0xMDYuMTAxLDBsLTc2Ljg5OSw3Ni45di02MzdjMC00MS40LTMzLjYwMS03NS03NS03NQ0KCQljLTQxLjQsMC03NSwzMy42LTc1LDc1djYzN2wtNzguOS03OC45Yy0yOS4zLTI5LjMtNzYuOC0yOS4zLTEwNi4xLDBjLTI5LjMwMSwyOS4zMDEtMjkuMzAxLDc2LjgwMSwwLDEwNi4xMDFsMjA3LDIwNw0KCQlDNjUxLjk3NSw5NTQuNjksNjUxLjk3NSw5NTQuNzkxLDY1Mi4wNzUsOTU0Ljc5MXoiLz4NCgk8cGF0aCBkPSJNNzQuOTc1LDM2NS40OTFjMTkuMiwwLDM4LjQtNy4zLDUzLTIybDc4LjktNzguOXY2MzdjMCw0MS40LDMzLjYsNzUsNzUsNzVzNzUtMzMuNiw3NS03NXYtNjM3bDc2Ljg5OSw3Ni45DQoJCWMxNC42MDEsMTQuNiwzMy44LDIyLDUzLDIyczM4LjQtNy4zLDUzLTIyYzI5LjMtMjkuMywyOS4zLTc2LjgsMC0xMDYuMWMtNS4zOTktNS40LTEwLjg5OS0xMC45LTE2LjMtMTYuMw0KCQljLTEzLjMtMTMuMy0yNi41LTI2LjctMzkuOS0zOS45Yy0xNy4xOTktMTcuMS0zNC4zLTM0LjItNTEuMzk5LTUxLjRjLTE2LjgtMTctMzQuMi0zMy41LTUwLjktNTAuNw0KCQljLTE2LjItMTYuNi0zMi42LTMyLjktNDkuODk5LTQ4LjVjLTE4LTE2LjItNDEuNS0yNC4yLTY1LjctMTguNWMtNi4yLDEuNC0xMi44LDMuOC0xOC40LDYuOWMtMTYuNyw5LjQtMzAsMjQuOS00My41LDM4LjMNCgkJYy0xNi41LDE2LjMtMzIuNywzMi45LTQ5LjEsNDkuNGMtMTkuNSwxOS42LTM5LjIsMzkuMS01OC44LDU4LjZjLTE2LjQsMTYuNi0zMywzMy4yLTQ5LjUsNDkuOGMtOCw4LTE2LDE1LjktMjQsMjMuOQ0KCQljLTAuMSwwLjEtMC4zLDAuMy0wLjQsMC40Yy0yOS4zLDI5LjMtMjkuMyw3Ni44LDAsMTA2LjFDMzYuNTc1LDM1OC4xOTEsNTUuNzc1LDM2NS40OTEsNzQuOTc1LDM2NS40OTF6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg=="
+                                                 style="        padding: .25rem;
+                                             max-width: 40px;
+                                              height: 50px;
+                                             " />
+
+                                        </div>
+
+                                        <div class="col-9">
+                                            <p>
+                                                Fan Sweep Diameter(in)
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label class="form-label">0</label>
+
+                                        </div>
+                                        <div class="col">
+                                            <input type="range" class="form-range" min="0" max=@Model.Max(t => t.fan_sweep_diameter) id="fanSweep">
+
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label"> @Model.Max(t => t.fan_sweep_diameter)</label>
+
+                                        </div>
+
+                                    </div>
+                                    <p id="fansweepLbl" class="text-center text-danger">0</p>
 
                                 </div>
-
-
                             </div>
                         </div>
+
+
+
                     </div>
-
-
-
-
-
                 </div>
+            </div>
+            
 
-                <div class="row border">
-
-                    @* create an accordian *@
-
-                    <div class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">
-
-                                    <p class="text-justify" data-toggle="collapse" href="#collapse2">Tech Specifications </p>
-
-                                </h5>
-                            </div>
-
-                            <div id="collapse2" class="panel-collapse collapse show">
-                                <div class="panel-body ">
-
-                                    <p>Airflow(CFM)</p>
-                                    <label for="airflow" class="form-label">0</label>
-                                    <input type="range" class="form-range" min="0" max="5" id="airflow">
-                                    <label for="airflow" class="form-label">4000</label>
-
-
-                                    <p>
-                                        Max Power(W)
-                                    </p>
-                                    <label for="maxPower" class="form-label">0</label>
-                                    <input type="range" class="form-range" min="0" max="5" id="maxPower">
-                                    <label for="maxPower" class="form-label">100</label>
-
-
-                                    @* Min Max value  *@
-                                    <p>
-                                        Sound at max power (dBA)
-                                    </p>
-                                    <label for="MinValue" class="form-label">0</label>
-                                    <input type="range" class="form-range" min="0" max="5" id="customRange2">
-                                    <label for="MaxValue" class="form-label">100</label>
-
-
-                                    @* Min Max value  *@
-                                    <p>
-                                        Fan sweep diameter(in)
-                                    </p>
-                                    <label for="MinValue" class="form-label">0</label>
-                                    <input type="range" class="form-range" min="0" max="5" id="customRange2">
-                                    <label for="MaxValue" class="form-label">100</label>
-
-
-
-
-
-                                </div>
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-
-            }
-
-        </div>
-
-
-        @*Product Results*@
-        <div class="col-8">
-            @*  product results *@
-
-            @*  for each product result...
-
-                make a bootstrap card with result*@
-
-            @*<div class="card-group">
-                    <div class="card">
-                        <img class="card-img-top" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=27c09d27ccbd139fd0f7d1cef8f7d41d" style="width:15rem" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=27c09d27ccbd139fd0f7d1cef8f7d41d" style="width:15rem" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="..." style="width:15rem" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>*@
-
-
+            @*Product Results*@
 
             @* Category Name >   SubCategory Name*@
-            <div class="mt-5">
-                <div class="card-deck">
+            <div class="card-deck col-9">
+                <div class="row">
+
                     @foreach (var item in Model)
                     {
-                        <div class="card" id=@item.ProductID>
+                        <div class="card col" id=@item.ProductID>
                             @* product image *@
 
-                            <img class="card-img-top" src="https://images.homedepot-static.com/productImages/5acbd321-bfb9-4b91-9bef-03c1ca520422/svn/white-lasko-desk-fans-2002w-64_1000.jpg " Card image cap">
+                            <img class="card-img-top" src=@item.ProductURL>
                             <div class="card-body">
                                 @* product description (Manufacture, Series, Model) *@
                                 <h5 class="card-title text-center">
@@ -283,24 +346,32 @@
                                     @Html.DisplayFor(m => item.model_name)
 
                                 </h5>
-                                <p class="text-center">
-                                    <p class="airflowValue">
-                                    @Html.DisplayFor(m => item.air_flow)
-                                    CFM
-                                        </p>
-                                    <br />
-                                    @Html.DisplayFor(m => item.operating_voltage_max)
-                                    W at max speed
-                                    <br />
-                                    @Html.DisplayFor(m => item.power_max)
-                                    dbA at max speed
-                                    <br />
 
-                                    @Html.DisplayFor(m => item.fan_sweep_diameter)
-                                    fan sweep diameter
-                                    <br />
+                                @*  you can't add id/class properties for DisplayFor -- <bold> *@
+                                @Html.DisplayFor(m => item.air_flow)
+                                CFM
+                                @Html.HiddenFor(m => item.air_flow, new { @class = "air_flow_val" })
+                                <br />
 
-                                </p>
+
+                                @Html.DisplayFor(m => item.power_max)
+                                W at max speed
+                                @Html.HiddenFor(m => item.power_max, new { @class = "max_power" })
+                                <br />
+
+                                @Html.DisplayFor(m => item.sound_at_max_speed)
+                                dbA at max speed
+                                @Html.HiddenFor(m => item.sound_at_max_speed, new { @class = "sound_max_speed" })
+                                <br />
+
+
+                                @Html.DisplayFor(m => item.fan_sweep_diameter)
+                                fan sweep diameter
+                                @Html.HiddenFor(m => item.fan_sweep_diameter, new { @class = "fan_sweeep" })
+
+                                @Html.HiddenFor(m => item.model_year, new { @class = "model_year" })
+
+                                <br />
 
                             </div>
                             @* Tech Specs *@
@@ -310,12 +381,11 @@
                                 <div class="row">
                                     <div class="col">
                                         @Html.Label("Compare")
-                                        @Html.CheckBox("Compare", false)
-
+                                        @Html.CheckBox("Compare", false, new { @id = item.ProductID })
 
                                     </div>
                                     <div class="col">
-                                        <button class="btn btn-primary">Add to</button>
+                                        <button class="btn btn-primary productDetails" id=@item.ProductID>Add to</button>
                                     </div>
                                 </div>
 
@@ -326,7 +396,17 @@
                     }
 
 
+                </div>
 
+
+            </div>
+            <div class="text-right mt-5">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-right">
+                            <button type="button" id="compareBtn" class="btn btn-success rounded-pill">Compare</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -334,84 +414,256 @@
 
 
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        @Scripts.Render("~/bundles/jquery")
 
 
 
-    @* JQuery for the slider *@
-    <script>
 
-        $(document).ready(function () {
-            
-            $(".dropdown-menu").find("li a").click(function (e) {
-                $('.selectedLi').removeClass('selectedLi');
-                $(this).addClass('selectedLi');
-                var text = $('.dropdown-menu').find("li a.selectedLi").text();
-                if (text == "Mechanical") {
-                    $("#products").empty();
-                    $("#products").append("<option value=''></option><option value=''></option><option value='Generators'>Generators</option>");
+        <script>
 
-                } else if (text == "Electrical") {
-                    $("#products").empty();
-                    $("#products").append("<option value='Toasters'>Toasters</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
+            $("#saveBtn").on("click", function () {
 
-                } else if (text == "Stationary") {
-                    $("#products").empty();
-                    $("#products").append("<option value='Staplers'>Staplers</option><option value='Notepads'>Notepads</option><option value='Stamps'>Stamps</option>");
+                    //check start model year
+                //check end model year
+                // check if model_year for each card is between these value
+                var cards = $(".card");
+                var model_start = $("#modelStart").val();
+                var model_end = $("#modelEnd").val();
+                console.log(model_start);
+                console.log(model_end);
 
-                } else if (text == "Furniture") {
-                    $("#products").empty();
-                    $("#products").append("<option value='Sofas'>Sofas</option><option value='Couches'>Couches</option><option value='Tables'>Tables</option>");
-
-                } else {
-                    $("#products").empty();
-                    $("#products").append("<option value='SelectCate'>Select Category First</option>");
+                for (var i = 0; i < cards.length; i++) {
+                    let item_model_year = cards[i].querySelector(".model_year").value;
+                    //for each card...
+                    if (item_model_year <= model_end &&
+                        item_model_year >= model_start)
+                    {
+                        $(cards[i]).show()
+                    } else {
+                        $(cards[i]).hide();
+                    }
                 }
-                e.preventDefault();
+
+
+
+            });
+
+            //#fanSweep  -- slider 
+            //.fan_sweeep  --  value
+            $('#fanSweep').on('change', function () {
+                //value for airlfow
+                var currentVal = $(this).val();
+
+                //get value for each product's airflow 
+                var cards = $(".card");
+
+                $("#fansweepLbl").text(currentVal);
+                //Grab the airflow val
+
+                for (var i = 0; i < cards.length; i++) {
+                    //for each card...
+                    if (cards[i].querySelector(".fan_sweeep").value == currentVal) {
+                        $(cards[i]).show()
+                    } else {
+                        $(cards[i]).hide();
+                    }
+
+
+
+                }
+
             });
 
 
 
 
+            //Sound at max speed FILTER
+            //.sound_max_speed
+                $('#soundMax').on('change', function () {
+                    //value for airlfow
+                    var currentVal = $(this).val();
 
-            //grab airflow value for each card available?
+                    //get value for each product's airflow 
+                    var cards = $(".card");
+
+                    $("#soundAtMaxLbl").text(currentVal);
+                    //Grab the airflow val
+
+
+                    for (var i = 0; i < cards.length; i++) {
+
+                        //for each card...
+                        if (cards[i].querySelector(".sound_max_speed").value == currentVal) {
+                            $(cards[i]).show()
+                        } else {
+                            $(cards[i]).hide();
+                        }
+
+
+
+                    }
+
+                });
+
+
+
+
+            // Operating Voltage FILTER
+            //.voltage_max_speed
+
+            $('#maxPower').on('change', function () {
+                //value for airlfow
+                var currentVal = $(this).val();
+
+                //get value for each product's airflow 
+                var cards = $(".card");
+
+                $("#maxPowerLbl").text(currentVal);
+                //Grab the airflow val
+
+
+                for (var i = 0; i < cards.length; i++) {
+
+                    //for each card...
+                    if (cards[i].querySelector(".max_power").value == currentVal) {
+                        $(cards[i]).show()
+                    } else {
+                        $(cards[i]).hide();
+                    }
+
+
+
+                }
+
+            });
+
+
+            //Airflow FILTER 
             $('#airflow').on('change', function () {
                 //value for airlfow
                 var currentVal = $(this).val();
+
+                //get value for each product's airflow 
                 var cards = $(".card");
-                var cardbody = $(cards).children().eq(1);
+
+                $("#airflowLbl").text(currentVal);
+                //Grab the airflow val
 
 
-                //val : 5000 RPM
+                for (var i = 0; i < cards.length; i++) {
 
-                var airflowVal = cardbody.children(".airflowValue")[0].textContent.split("\n")[1];
-                console.log(airflowVal)
-                //for (const cards in card) {
-                //    //var cardbody = $(cards).children().eq(1);
-                //    console.log(cards);
-                //}
-                console.log(currentVal)
+                    //for each card...
 
-                if (currentVal == 5) {
-                    cards.show();
-                } else {
-                    cards.hide();
+                   //console.log( cards[i].children(".card-body").children(".air_flow_val").val());
+
+                    if (cards[i].querySelector(".air_flow_val").value == currentVal) {
+                        $(cards[i]).show()
+                    } else {
+                        $(cards[i]).hide();
+                    }
+
+
+
                 }
-
+                
             });
 
-        });
-       
 
 
 
-    </script>
+            $(document).ready(function () {
+                //Search  menu dropdown
+                $(".dropdown-menu").find("li a").click(function (e) {
+                    $('.selectedLi').removeClass('selectedLi');
+                    $(this).addClass('selectedLi');
+                    var text = $('.dropdown-menu').find("li a.selectedLi").text();
+                    if (text == "Mechanical") {
+                        $("#products").empty();
+                        $("#products").append("<option value=''></option><option value=''></option><option value='Generators'>Generators</option>");
+
+                    } else if (text == "Electrical") {
+                        $("#products").empty();
+                        $("#products").append("<option value='Toasters'>Toasters</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
+
+                    } else if (text == "Stationary") {
+                        $("#products").empty();
+                        $("#products").append("<option value='Staplers'>Staplers</option><option value='Notepads'>Notepads</option><option value='Stamps'>Stamps</option>");
+
+                    } else if (text == "Furniture") {
+                        $("#products").empty();
+                        $("#products").append("<option value='Sofas'>Sofas</option><option value='Couches'>Couches</option><option value='Tables'>Tables</option>");
+
+                    } else {
+                        $("#products").empty();
+                        $("#products").append("<option value='SelectCate'>Select Category First</option>");
+                    }
+                    e.preventDefault();
+                });
+
+
+                $('#compareBtn').on('click', function () {
+                    //first make sure not more than 3 is clicked.
+                    //if > 3 clicked?
+                    // alert.
+                    let numsOfCheckboxesChecked = 0;
+                    var cardFooter = $(".card-footer");
+                    cardFooter.each(function (index, elemnt) {
+                        numsOfCheckboxesChecked += $(this).find($('input[type="checkbox"]:checked')).length;
+                    });
+
+                    if (numsOfCheckboxesChecked > 3 || numsOfCheckboxesChecked < 1) {
+
+                        alert("Please select at most 3 products to compare");
+                    } else {
+
+                        // redirect to product Details page, but with Product ID.
+
+                    }
+                });
+
+
+
+                ////grab airflow value for each card available?
+                //$('#airflow').on('change', function () {
+                //    //value for airlfow
+                //    var currentVal = $(this).val();
+                //    //GRAB EACH CARD
+                //    var cards = $(".card");
+                //    var cardbody = $(cards).children();
+
+                //    $("airflowLbl").val(currentVal);
+                //    $('#airflowFilter').html(currentVal)
+
+
+                //    // grab airflow val for each card body
+                //    var airflowVal = cardbody.children(".airflowValue");
+
+                //    //removing all whitespace
+                //    //airflowVal = airflowVal.replace('/ /g', '')
+
+                //    //for (const cards in card) {
+                //    //    //var cardbody = $(cards).children().eq(1);
+                //    //    console.log(cards);
+                //    //}
+
+                //    if (currentVal == airflowVal) {
+                //        cards.show();
+                //    } else {
+                //        cards.hide();
+                //    }
+
+                //});
+
+
+
+                });
+
+
+        </script>
 
 
 
 
 
-</body>
+    </body>
+

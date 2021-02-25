@@ -32,9 +32,11 @@ namespace MarketplaceWebPortal.UI.Controllers
             var subcategoryName =Request.QueryString["subcategory"];
             //what does this return? --> List<ProductUI>
             //List<ProductDetailUI> list = _productRepository.SearchProduct(subcategoryName);
+
+            //hardcode our product selection.
            List<ProductDetailUI> ListProducts = _productRepository.searchProduct("Electrical","Fan");
 
-
+            
             return View(ListProducts);
 
         }

@@ -29,3 +29,18 @@ h3 {
     object-fit: cover;
 }
 
+
+.upDownImg {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: 50px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+}
