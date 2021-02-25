@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MarketplaceWebPortal.Core.Interfaces;
 using MarketplaceWebPortal.Core.POCOClasses;
 using MarketplaceWebPortal.EntityLayer.Repository;
+using MarketplaceWebPortal.UI.Models;
 
 namespace MarketplaceWebPortal.UI.Controllers
 {
@@ -28,13 +29,18 @@ namespace MarketplaceWebPortal.UI.Controllers
             return View(list);
 
         }
-        public ActionResult Compare()
+        public ActionResult Compare(Product product)
         {
-            List<int> idList = new List<int> { 1, 2, 3 };
+            // input: ProductID
+            int[] arr = product.ProductID;
+            
             List<ProductDetailUI> list = new List<ProductDetailUI>();
-            for (int i = 0; i < idList.Count; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                var _products = _iProductRepository.getProductDetail(idList[i]);
+                int productId = arr[i];
+                //int productId = (int)idList.ElementAt(i);
+                // each element in idList is a ProductID.
+                var _products = _iProductRepository.getProductDetail(productId);
                 list.Add(_products);
             }
             return View(list);

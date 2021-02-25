@@ -8,68 +8,72 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/Content/ProductSummary.css" />
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 
 
-    <body >
-      
-
-
-        <nav id="grad1">
-
-
-            <div class="d-flex justify-content-between">
-                <div class="p-2 bd-highlight">
-
-                    <img src="~/Img/Joole_250x150.png" class="img-responsive" />
-
-                </div>
-                <div class="p-2 bd-highlight">
-
-                    <form action="/Selection/Details" method="post" id="myForm">
-
-                        <div class="dropdown">
-                            <button style="color:black" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                Category
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Mechanical</a></li>
-                                <li><a href="">Electrical</a></li>
-                                <li><a href="">Stationary</a></li>
-                                <li><a href="">Furniture</a></li>
-                            </ul>
-                            <select id="products" name="products">
-                                <option value="" disabled selected hidden>Search...</option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
-                            <button class="btn btn-info">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="p-2 bd-highlight">
-
-                    @*<img src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=100" class="img-thumbnail rounded" />*@
+<body>
 
 
 
-                </div>
+    <nav id="grad1">
+
+
+        <div class="d-flex justify-content-between">
+            <div class="p-2 bd-highlight">
+
+                <img src="~/Img/Joole_250x150.png" class="img-responsive" />
+
             </div>
-        </nav>
+            <div class="p-2 bd-highlight">
+
+                <form action="/Selection/Details" method="post" id="myForm">
+
+                    <div class="dropdown">
+                        <button style="color:black" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Category
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Mechanical</a></li>
+                            <li><a href="">Electrical</a></li>
+                            <li><a href="">Stationary</a></li>
+                            <li><a href="">Furniture</a></li>
+                        </ul>
+                        <select id="products" name="products">
+                            <option value="" disabled selected hidden>Search...</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="p-2 bd-highlight">
+
+                @*<img src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=100" class="img-thumbnail rounded" />*@
+
+
+
+            </div>
+        </div>
+    </nav>
 
 
 
 
 
-        @* make flex container in the future..? *@
+    @* make flex container in the future..? *@
 
     <div class="container-fluid" style="padding-left: 0; padding-right: 0">
 
@@ -81,7 +85,7 @@
                 @*  Criteria *@
 
                 @*@using (Html.BeginForm("Product", "Summary", FormMethod.Post))
-                {*@
+                    {*@
                 <div class="row justify-content-start">
 
                     <div class="col-2">
@@ -175,7 +179,7 @@
                                         <div class="col">
 
                                             @* get the highest CFM among products *@
-                                            <input type="range" class="form-range" min="0"  max=@Model.Max(t => t.air_flow) step="1000" id="airflow">
+                                            <input type="range" class="form-range" min="0" max=@Model.Max(t => t.air_flow) step="1000" id="airflow">
 
 
                                         </div>
@@ -221,7 +225,7 @@
                                         </div>
 
                                         <div class="col">
-                                            <input type="range" class="form-range" min="0" max=@Model.Max(t => t.power_max) step ="0.01"id="maxPower">
+                                            <input type="range" class="form-range" min="0" max=@Model.Max(t => t.power_max) step="0.01" id="maxPower">
 
                                         </div>
                                         <div class="col">
@@ -324,7 +328,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
             @*Product Results*@
 
@@ -414,227 +418,286 @@
 
 
 
-        @Scripts.Render("~/bundles/jquery")
+ 
 
 
 
+    <script>
 
-        <script>
+        $("#clearBtn").on("click", function () {
+            //reset all filters
+            $("input[type=range]").val(0);
 
-            $("#clearBtn").on("click", function () {
-                //reset all filters
-                $("input[type=range]").val(0);
+            $(".card").show();
+        })
 
-                $(".card").show();
-            })
+        $("#saveBtn").on("click", function () {
 
-            $("#saveBtn").on("click", function () {
+            //check start model year
+            //check end model year
+            // check if model_year for each card is between these value
+            var cards = $(".card");
+            var model_start = $("#modelStart").val();
+            var model_end = $("#modelEnd").val();
+            console.log(model_start);
+            console.log(model_end);
 
-                    //check start model year
-                //check end model year
-                // check if model_year for each card is between these value
-                var cards = $(".card");
-                var model_start = $("#modelStart").val();
-                var model_end = $("#modelEnd").val();
-                console.log(model_start);
-                console.log(model_end);
+            for (var i = 0; i < cards.length; i++) {
+                let item_model_year = cards[i].querySelector(".model_year").value;
+                //for each card...
+                if (item_model_year <= model_end &&
+                    item_model_year >= model_start) {
+                    $(cards[i]).show()
+                } else {
+                    $(cards[i]).hide();
+                }
+            }
 
-                for (var i = 0; i < cards.length; i++) {
-                    let item_model_year = cards[i].querySelector(".model_year").value;
-                    //for each card...
-                    if (item_model_year <= model_end &&
-                        item_model_year >= model_start)
-                    {
-                        $(cards[i]).show()
-                    } else {
-                        $(cards[i]).hide();
-                    }
+        });
+
+        //#fanSweep  -- slider
+        //.fan_sweeep  --  value
+        $('#fanSweep').on('change', function () {
+            //value for airlfow
+            var currentVal = $(this).val();
+
+            //get value for each product's airflow
+            var cards = $(".card");
+
+            $("#fansweepLbl").text(currentVal);
+            //Grab the airflow val
+
+            for (var i = 0; i < cards.length; i++) {
+                //for each card...
+                if (cards[i].querySelector(".fan_sweeep").value == currentVal) {
+                    $(cards[i]).show()
+                } else {
+                    $(cards[i]).hide();
                 }
 
-            });
 
-            //#fanSweep  -- slider 
-            //.fan_sweeep  --  value
-            $('#fanSweep').on('change', function () {
-                //value for airlfow
-                var currentVal = $(this).val();
 
-                //get value for each product's airflow 
-                var cards = $(".card");
+            }
 
-                $("#fansweepLbl").text(currentVal);
-                //Grab the airflow val
-
-                for (var i = 0; i < cards.length; i++) {
-                    //for each card...
-                    if (cards[i].querySelector(".fan_sweeep").value == currentVal) {
-                        $(cards[i]).show()
-                    } else {
-                        $(cards[i]).hide();
-                    }
+        });
 
 
 
+
+        //Sound at max speed FILTER
+        //.sound_max_speed
+        $('#soundMax').on('change', function () {
+            //value for airlfow
+            var currentVal = $(this).val();
+
+            //get value for each product's airflow
+            var cards = $(".card");
+
+            $("#soundAtMaxLbl").text(currentVal);
+            //Grab the airflow val
+
+
+            for (var i = 0; i < cards.length; i++) {
+
+                //for each card...
+                if (cards[i].querySelector(".sound_max_speed").value == currentVal) {
+                    $(cards[i]).show()
+                } else {
+                    $(cards[i]).hide();
                 }
 
-            });
+
+
+            }
+
+        });
 
 
 
 
-            //Sound at max speed FILTER
-            //.sound_max_speed
-                $('#soundMax').on('change', function () {
-                    //value for airlfow
-                    var currentVal = $(this).val();
+        // Operating Voltage FILTER
+        //.voltage_max_speed
 
-                    //get value for each product's airflow 
-                    var cards = $(".card");
+        $('#maxPower').on('change', function () {
+            //value for airlfow
+            var currentVal = $(this).val();
 
-                    $("#soundAtMaxLbl").text(currentVal);
-                    //Grab the airflow val
+            //get value for each product's airflow
+            var cards = $(".card");
 
-
-                    for (var i = 0; i < cards.length; i++) {
-
-                        //for each card...
-                        if (cards[i].querySelector(".sound_max_speed").value == currentVal) {
-                            $(cards[i]).show()
-                        } else {
-                            $(cards[i]).hide();
-                        }
+            $("#maxPowerLbl").text(currentVal);
+            //Grab the airflow val
 
 
+            for (var i = 0; i < cards.length; i++) {
 
-                    }
-
-                });
-
-
-
-
-            // Operating Voltage FILTER
-            //.voltage_max_speed
-
-            $('#maxPower').on('change', function () {
-                //value for airlfow
-                var currentVal = $(this).val();
-
-                //get value for each product's airflow 
-                var cards = $(".card");
-
-                $("#maxPowerLbl").text(currentVal);
-                //Grab the airflow val
-
-
-                for (var i = 0; i < cards.length; i++) {
-
-                    //for each card...
-                    if (cards[i].querySelector(".max_power").value == currentVal) {
-                        $(cards[i]).show()
-                    } else {
-                        $(cards[i]).hide();
-                    }
-
-
-
+                //for each card...
+                if (cards[i].querySelector(".max_power").value == currentVal) {
+                    $(cards[i]).show()
+                } else {
+                    $(cards[i]).hide();
                 }
 
-            });
 
 
-            //Airflow FILTER 
-            $('#airflow').on('change', function () {
-                //value for airlfow
-                var currentVal = $(this).val();
+            }
 
-                //get value for each product's airflow 
-                var cards = $(".card");
-
-                $("#airflowLbl").text(currentVal);
-                //Grab the airflow val
+        });
 
 
-                for (var i = 0; i < cards.length; i++) {
+        //Airflow FILTER
+        $('#airflow').on('change', function () {
+            //value for airlfow
+            var currentVal = $(this).val();
 
-                    //for each card...
+            //get value for each product's airflow
+            var cards = $(".card");
 
-                   //console.log( cards[i].children(".card-body").children(".air_flow_val").val());
-
-                    if (cards[i].querySelector(".air_flow_val").value == currentVal) {
-                        $(cards[i]).show()
-                    } else {
-                        $(cards[i]).hide();
-                    }
-
+            $("#airflowLbl").text(currentVal);
+            //Grab the airflow val
 
 
+            for (var i = 0; i < cards.length; i++) {
+
+                //for each card...
+
+                //console.log( cards[i].children(".card-body").children(".air_flow_val").val());
+
+                if (cards[i].querySelector(".air_flow_val").value == currentVal) {
+                    $(cards[i]).show()
+                } else {
+                    $(cards[i]).hide();
                 }
-                
+
+
+
+            }
+
+        });
+
+
+
+
+        $(document).ready(function () {
+            //Search  menu dropdown
+            $(".dropdown-menu").find("li a").click(function (e) {
+                $('.selectedLi').removeClass('selectedLi');
+                $(this).addClass('selectedLi');
+                var text = $('.dropdown-menu').find("li a.selectedLi").text();
+                if (text == "Mechanical") {
+                    $("#products").empty();
+                    $("#products").append("<option value=''></option><option value=''></option><option value='Generators'>Generators</option>");
+
+                } else if (text == "Electrical") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Toasters'>Toasters</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
+
+                } else if (text == "Stationary") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Staplers'>Staplers</option><option value='Notepads'>Notepads</option><option value='Stamps'>Stamps</option>");
+
+                } else if (text == "Furniture") {
+                    $("#products").empty();
+                    $("#products").append("<option value='Sofas'>Sofas</option><option value='Couches'>Couches</option><option value='Tables'>Tables</option>");
+
+                } else {
+                    $("#products").empty();
+                    $("#products").append("<option value='SelectCate'>Select Category First</option>");
+                }
+                e.preventDefault();
+            });
+
+        });
+
+        $('#compareBtn').on('click', function () {
+            //first make sure not more than 3 is clicked.
+            //if > 3 clicked?
+            // alert.
+            let numsOfCheckboxesChecked = 0;
+
+            var productIds = [];
+            var cardFooter = $(".card-footer");
+            cardFooter.each(function (index, elemnt) {
+                numsOfCheckboxesChecked += $(this).find($('input[type="checkbox"]:checked')).length;
+            });
+
+            if (numsOfCheckboxesChecked > 3 || numsOfCheckboxesChecked < 1) {
+
+                alert("Please select at most 3 products to compare");
+            } else {
+                //grab all cards which have input checkbox CHECKED
+                cardFooter.each(function (index, elemnt) {
+                    if ($(this).find($('input[type="checkbox"]:checked'))) {
+                        productIds.push($(this).find($('input[type="checkbox"]:checked')).attr("id"));
+                    }
+                });
+                // redirect to product Details page, but with List<int> --> Product ID.
+
+
+            }
+            console.log(JSON.stringify(productIds));
+            //ajax make request to /Compare and pass in data: productIds
+            //$.ajax({
+            //    type: "POST",
+            //    //url: "https://localhost/ProductDetail/Compare",
+            //    url: "/ProductDetail/Compare",
+            //    data: {
+            //        productIds: JSON.stringify(productIds)
+            //    },
+
+            //    success: function (resp) {
+            //        if (resp != null) {
+            //            window.location = "https://localhost:44348/ProductDetail/Compare"
+            //        }
+            //    },
+
+            //    failure: function (err) {
+            //        alert(err);
+            //    }
+            //});
+
+            //remove nulls
+            var filtered = productIds.filter(function (el) {
+                return el != null;
             });
 
 
+            $.ajax({
+                url: "/ProductDetail/Compare",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    productId : filtered
+                }),
+                error: function (jqXHR, exception) {
+                    alert('Error message.');
+                }
+            });
 
 
-            $(document).ready(function () {
-                //Search  menu dropdown
-                $(".dropdown-menu").find("li a").click(function (e) {
-                    $('.selectedLi').removeClass('selectedLi');
-                    $(this).addClass('selectedLi');
-                    var text = $('.dropdown-menu').find("li a.selectedLi").text();
-                    if (text == "Mechanical") {
-                        $("#products").empty();
-                        $("#products").append("<option value=''></option><option value=''></option><option value='Generators'>Generators</option>");
+            console.log(filtered);
+            var url = "/ProductDetail/Compare"
 
-                    } else if (text == "Electrical") {
-                        $("#products").empty();
-                        $("#products").append("<option value='Toasters'>Toasters</option><option value='Lights'>Lights</option><option value='Heaters'>Heaters</option>");
+            $.ajax({
+                url: url,
+                type: 'POST',
+                contentType: 'application/json',
+                data: {
+                    'productIds': filtered
+                },
+            });
 
-                    } else if (text == "Stationary") {
-                        $("#products").empty();
-                        $("#products").append("<option value='Staplers'>Staplers</option><option value='Notepads'>Notepads</option><option value='Stamps'>Stamps</option>");
-
-                    } else if (text == "Furniture") {
-                        $("#products").empty();
-                        $("#products").append("<option value='Sofas'>Sofas</option><option value='Couches'>Couches</option><option value='Tables'>Tables</option>");
-
-                    } else {
-                        $("#products").empty();
-                        $("#products").append("<option value='SelectCate'>Select Category First</option>");
-                    }
-                    e.preventDefault();
-                });
+           
+            //console.table(productIds);
+        });
 
 
-                $('#compareBtn').on('click', function () {
-                    //first make sure not more than 3 is clicked.
-                    //if > 3 clicked?
-                    // alert.
-                    let numsOfCheckboxesChecked = 0;
-                    var cardFooter = $(".card-footer");
-                    cardFooter.each(function (index, elemnt) {
-                        numsOfCheckboxesChecked += $(this).find($('input[type="checkbox"]:checked')).length;
-                    });
 
-                    if (numsOfCheckboxesChecked > 3 || numsOfCheckboxesChecked < 1) {
-
-                        alert("Please select at most 3 products to compare");
-                    } else {
-
-                        // redirect to product Details page, but with Product ID.
-
-                    }
-                });
-
-
-                });
-
-
-        </script>
+    </script>
 
 
 
 
 
-    </body>
+</body>
 

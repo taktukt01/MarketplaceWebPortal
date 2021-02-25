@@ -45,6 +45,10 @@ namespace MarketplaceWebPortal.UI.Controllers
                 string imgpath = Path.Combine(Server.MapPath("~/Profile/"), filename);
                 file.SaveAs(imgpath);
             }
+            //else
+            //{
+            //    return Redirect("/Index");
+            //}
             com.Parameters.AddWithValue("@ImgUrl", "~/Profile/" + file.FileName);
             com.ExecuteNonQuery();
             con.Close();
